@@ -105,10 +105,10 @@ const HeroSection = ({ sectionId }) => {
           </p>
 
           <div className="mt-20 flex gap-4">
-            <button className="actionButton group flex gap-1 items-center px-4 py-2 bg-primary hover:brightness-90 rounded-lg text-text-dark font-semibold hoverShadow">
+            <a href="/DOLAMANI ROHIDAS Resume.pdf" download className="actionButton group flex gap-1 items-center px-4 py-2 bg-primary rounded-lg font-semibold shadow-background-dark dark:shadow-background-light hoverShadow ">
               <IoMdDownload size={20} /> Download Resume
-            </button>
-            <button className="actionButton flex gap-1 items-center px-4 py-2 bg-transparent border-[1px] border-primary rounded-lg font-semibold hoverShadow">
+            </a>
+            <button className="actionButton flex gap-1 items-center px-4 py-2 bg-transparent border-[1px] border-primary rounded-lg font-semibold shadow-background-dark dark:shadow-background-light hoverShadow">
               {" "}
               Contact Me
             </button>
@@ -120,7 +120,7 @@ const HeroSection = ({ sectionId }) => {
                 key={link.id}
                 href={link.path}
                 target="_blank"
-                className="mediaLink rounded-sm mediaLinksHoverShadow"
+                className="mediaLink rounded-sm mediaLinksHoverShadow "
               >
                 <link.icon
                   size={30}

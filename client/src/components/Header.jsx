@@ -65,7 +65,6 @@ const Header = () => {
       delay: 0.2,
       stagger: 0.1,
     });
-
   }, {});
 
   return (
@@ -86,7 +85,7 @@ const Header = () => {
       <nav className="p-2 rounded-lg">
         <ul className="flex gap-2 items-center justify-between">
           {links.map((link) => (
-            <li key={link.id} className="navLink">
+            <li key={link.id} className="navLink ">
               <Link
                 to={link.path}
                 smooth={true}
@@ -96,9 +95,9 @@ const Header = () => {
                 onSetActive={() => handleSetActive(link.path)}
                 className={`${
                   link.path === activeLink
-                    ? "bg-primary text-text-dark"
+                    ? "bg-primary "
                     : "bg-background-light dark:bg-background-dark"
-                } transition-all duration-100 px-4 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-text-dark font-semibold`}
+                } transition-all duration-100 px-4 py-2 rounded-md cursor-pointer font-semibold shadow-background-dark dark:shadow-background-light hoverShadow`}
               >
                 {link.label}
               </Link>
@@ -111,7 +110,7 @@ const Header = () => {
           onClick={() => setDarkMode((mode) => !mode)}
           className={`${
             isOnTop ? "" : "hidden"
-          } p-2 rounded hoverShadow transition-opacity duration-100 ease-in-out bg-background-light dark:bg-background-dark `}
+          } p-2 rounded shadow-background-dark dark:shadow-background-light hoverShadow transition-opacity duration-100 ease-in-out bg-background-light dark:bg-background-dark `}
         >
           {darkMode ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
         </button>

@@ -14,9 +14,14 @@
   box-shadow: 0 0 10px #3f3f3f;
   /* @apply bg-red-600 */
 }
-
-.hoverShadow:hover {
+.hoverShadow:hover{
+  box-shadow: 0 0 10px ;
+}
+.lightHoverShadow:hover {
   box-shadow: 0 0 10px #3f3f3f;
+}
+.darkHoverShadow:hover {
+  box-shadow: 0 0 10px #acacac;
 }
 
 section {
@@ -39,4 +44,5 @@ section {
 
 .mediaLinksHoverShadow:hover {
   box-shadow: 0 0 25px var(--primary);
+  transition: all 100ms;
 }
