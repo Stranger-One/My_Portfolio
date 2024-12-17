@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Header } from "./components";
+import { useEffect, useRef, useState } from "react";
+import { BackToTopBtn, Header, MouseFollower, ScrollButton } from "./components";
 import {
   AboutSection,
   ContactSection,
@@ -11,6 +11,7 @@ import {
 import Lenis from "lenis";
 
 function App() {
+  const [mouseFollowerSize, setMouseFollowerSize] = useState("small")
 
 
 
@@ -32,6 +33,8 @@ function App() {
 
   return (
     <div className="min-h-screen w-full relative bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+      <MouseFollower mouseFollowerSize={mouseFollowerSize} />
+
       {/* Header */}
       <Header />
 
@@ -41,7 +44,7 @@ function App() {
         <HeroSection sectionId="hero" />
 
         {/* About section */}
-        <AboutSection sectionId="about" />
+        <AboutSection sectionId="about" setMouseFollowerSize={setMouseFollowerSize} />
 
         {/* Projects section */}
         <ProjectsSection sectionId="projects" />
@@ -55,6 +58,9 @@ function App() {
         {/* Contact section */}
         <ContactSection sectionId="contact" />
       </main>
+
+      {/* back to top */}
+      {/* <BackToTopBtn/> */}
 
       {/* Footer */}
       <footer>Footer</footer>

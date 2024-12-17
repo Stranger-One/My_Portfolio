@@ -10,6 +10,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
+import { DownloadResume, ScrollButton } from "../components";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -34,8 +35,23 @@ const HeroSection = ({ sectionId }) => {
   ];
 
   useGSAP(() => {
-    const text = new SplitType(".tagline", { types: "chars" });
+    const text = new SplitType(".tagline", { types: "words, chars" });
     // console.log(text.chars);
+
+    // Words to highlight
+    const wordsToHighlight = [
+      "MERN",
+    ];
+
+    // Reapply highlight class
+    const words = document.querySelectorAll(".tagline .word");
+    words.forEach((word) => {
+      wordsToHighlight.forEach((highlightWord) => {
+        if (word.textContent.includes(highlightWord)) {
+          word.classList.add("highlight");
+        }
+      });
+    });
 
     const tl = gsap.timeline();
     tl.from(".heading", {
@@ -67,7 +83,6 @@ const HeroSection = ({ sectionId }) => {
       ".actionButton",
       {
         opacity: 0,
-        opacity: 0,
         stagger: 0.01,
       },
       "t2"
@@ -78,7 +93,6 @@ const HeroSection = ({ sectionId }) => {
         opacity: 0,
         y: 10,
         delay: 0.2,
-        opacity: 0,
         stagger: 0.01,
       },
       "t2"
@@ -92,26 +106,20 @@ const HeroSection = ({ sectionId }) => {
         <video muted autoPlay loop playsInline src="/videoplayback (1).mp4" className=' object-bottom w-full '></video>
       </div>} */}
       <div className="absolute top-0 left-0 pt-16 w-full h-full grid grid-cols-2 gap-2">
-        <div className=" flex flex-col justify-center pl-20 ">
+        <div className=" flex flex-col justify-center pl-20 font-courgette">
           <div className="overflow-hidden w-fit">
-            <h2 className="heading text-5xl font-semibold mb-4">
+            <h2 className="heading text-6xl font-semibold mb-4 font-freeman cursor-none">
               Hi, I'm <span className="text-primary">Dola.</span>
             </h2>
           </div>
-          <p className="tagline text-2xl font-semibold">
+          <p className="tagline text-3xl cursor-none w-fit">
             "Building seamless web solutions with <br />
-            the power of the{" "}
-            <span className="text-primary underline">MERN Stack</span>"
+            the power of the MERN Stack"
           </p>
 
           <div className="mt-20 flex gap-4">
-            <a href="/DOLAMANI ROHIDAS Resume.pdf" download className="actionButton group flex gap-1 items-center px-4 py-2 bg-primary rounded-lg font-semibold shadow-background-dark dark:shadow-background-light hoverShadow ">
-              <IoMdDownload size={20} /> Download Resume
-            </a>
-            <button className="actionButton flex gap-1 items-center px-4 py-2 bg-transparent border-[1px] border-primary rounded-lg font-semibold shadow-background-dark dark:shadow-background-light hoverShadow">
-              {" "}
-              Contact Me
-            </button>
+            <DownloadResume />
+            <ScrollButton varient="outline" to="contact">Contact Me</ScrollButton>
           </div>
 
           <div className=" mt-10 flex gap-4 w-full ">
@@ -131,11 +139,11 @@ const HeroSection = ({ sectionId }) => {
           </div>
         </div>
 
-        <div className=" relative ">
+        <div className=" relative z-30 ">
           <div
             className="profileCircle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full animate-pulse"
             style={{
-              boxShadow: "0 0 80px #7E02B5",
+              boxShadow: "0 0 80px #007BFF",
             }}
           ></div>
           <div className="profileImage absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-2 border-background-dark dark:border-background-light rounded-full overflow-hidden">

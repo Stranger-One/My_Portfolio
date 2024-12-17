@@ -80,9 +80,9 @@ const Header = () => {
           isOnTop ? "" : "hidden"
         } transition-opacity duration-100 ease-in-out`}
       >
-        <h1 className="font-bold text-lg logo">LOGO</h1>
+        <h1 className="font-bold text-lg logo font-freeman">LOGO</h1>
       </div>
-      <nav className="p-2 rounded-lg">
+      <nav className="p-2 rounded-lg font-courgette">
         <ul className="flex gap-2 items-center justify-between">
           {links.map((link) => (
             <li key={link.id} className="navLink ">
@@ -97,7 +97,7 @@ const Header = () => {
                   link.path === activeLink
                     ? "bg-primary "
                     : "bg-background-light dark:bg-background-dark"
-                } transition-all duration-100 px-4 py-2 rounded-md cursor-pointer font-semibold shadow-background-dark dark:shadow-background-light hoverShadow`}
+                } transition-all duration-100 px-4 py-2 rounded-md cursor-pointer shadow-background-dark dark:shadow-background-light hoverShadow`}
               >
                 {link.label}
               </Link>

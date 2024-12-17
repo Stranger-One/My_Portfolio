@@ -1,17 +1,18 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Freeman&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* .btn-custom {
-  @apply bg-primary text-white py-2 px-4 rounded shadow-lg hover:bg-primary-dark;
-} */
+
 
 :root {
-  --primary: #7E02B5;
+  --primary: #007BFF;
 }
 
-.boxShadow {
-  box-shadow: 0 0 10px #3f3f3f;
+.primaryShadow {
+  box-shadow: 0 0 10px var(--primary);
   /* @apply bg-red-600 */
 }
 .hoverShadow:hover{
@@ -46,3 +47,121 @@ section {
   box-shadow: 0 0 25px var(--primary);
   transition: all 100ms;
 }
+
+/* Global Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* .about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+  color: #333;
+} */
+
+/* .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+} */
+
+/* .about-content {
+  text-align: left;
+} */
+
+/* .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+} */
+
+/* .about-description,
+.about-extra {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+} */
+
+.highlight {
+  color: #007bff;
+  font-weight: bold;
+}
+.textSemibold{
+  font-weight: 600;
+}
+
+/* .cta-buttons {
+  display: flex;
+  gap: 1rem;
+} */
+
+/* .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+} */
+
+/* .btn-primary {
+  background-color: #007bff;
+  color: white;
+} */
+
+/* .btn-secondary {
+  background-color: #28a745;
+  color: white;
+} */
+
+/* .skills-grid {
+  text-align: center;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+/* .skills-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+} */
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* .skills-list li {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+} */
+
+/* .btn:hover {
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+} */
+
+/* .skills-list li:hover {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} */
