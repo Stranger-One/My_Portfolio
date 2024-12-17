@@ -3,15 +3,13 @@ import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowDropdown, IoMdDownload } from "react-icons/io";
-import Typical from "react-typical";
-import { Link } from "react-scroll";
 import { DownloadResume, MouseFollower, ScrollButton } from "../components";
 import SplitType from "split-type";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutSection = ({ sectionId, setMouseFollowerSize }) => {
+const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
   const aboutPageRef = useRef();
 
   useGSAP(() => {
@@ -88,7 +86,7 @@ const AboutSection = ({ sectionId, setMouseFollowerSize }) => {
   }, {});
 
   return (
-    <section className="relative flex flex-col gap-20">
+    <section id={sectionId} ref={ref} className="relative flex flex-col gap-20">
       <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center">
         <h1
           ref={aboutPageRef}
@@ -105,7 +103,6 @@ const AboutSection = ({ sectionId, setMouseFollowerSize }) => {
       </div>
 
       <div
-        id={sectionId}
         className=" sticky top-24 w-full h-screen bg-background-light dark:bg-background-dark py-20"
       >
         {/* <h2 className="mt-16 mx-auto text-3xl w-fit">About Me.</h2> */}

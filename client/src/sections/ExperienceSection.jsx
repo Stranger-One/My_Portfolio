@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ExperienceSection = ({sectionId}) => {
+const ExperienceSection = ({sectionId, ref}) => {
   return (
-    <section id={sectionId}>ExperienceSection</section>
+    <section ref={ref} id={sectionId}>ExperienceSection</section>
   )
 }
 

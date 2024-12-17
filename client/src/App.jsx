@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { BackToTopBtn, Header, MouseFollower, ScrollButton } from "./components";
+import {
+  BackToTopBtn,
+  Header,
+  MouseFollower,
+  ScrollButton,
+} from "./components";
 import {
   AboutSection,
   ContactSection,
@@ -11,10 +16,44 @@ import {
 import Lenis from "lenis";
 
 function App() {
-  const [mouseFollowerSize, setMouseFollowerSize] = useState("small")
+  const [mouseFollowerSize, setMouseFollowerSize] = useState("small");
+  const [isOnTop, setIsOnTop] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
+  const sectionRefs = useRef([]);
 
+  const handleScroll = (e) => {
+    // console.log((window.scrollY).toFixed(0))
+    const scrollPosition = window.scrollY.toFixed(0);
 
+    if (scrollPosition > 50) {
+      setIsOnTop(false);
+    } else {
+      setIsOnTop(true);
+    }
 
+    // sectionRefs.current.forEach((section) => {
+    //   const offsetTop = section.offsetTop;
+    //   const offsetHeight = section.offsetHeight;
+
+    //   if (
+    //     scrollPosition >= offsetTop - 0 && // Adjust offset for earlier detection
+    //     scrollPosition <= offsetTop + offsetHeight
+    //   ) {
+    //     if (activeSection !== section.id) {
+    //       setActiveSection(section.id);
+    //       // console.log(section.id);
+    //     }
+    //   }
+    // });
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Initialize Lenis
   useEffect(() => {
@@ -36,27 +75,46 @@ function App() {
       <MouseFollower mouseFollowerSize={mouseFollowerSize} />
 
       {/* Header */}
-      <Header />
+      <Header isOnTop={isOnTop} activeSection={activeSection} />
 
       {/* Main */}
       <main className="w-full px-10">
         {/* Hero section */}
-        <HeroSection sectionId="hero" />
+        <HeroSection
+          ref={(el) => (sectionRefs.current[0] = el)}
+          sectionId="hero"
+        />
 
         {/* About section */}
-        <AboutSection sectionId="about" setMouseFollowerSize={setMouseFollowerSize} />
+        <AboutSection
+          ref={(el) => (sectionRefs.current[1] = el)}
+          sectionId="about"
+          setMouseFollowerSize={setMouseFollowerSize}
+        />
 
         {/* Projects section */}
-        <ProjectsSection sectionId="projects" />
+        <ProjectsSection
+          ref={(el) => (sectionRefs.current[2] = el)}
+          sectionId="projects"
+        />
 
         {/* Skills section */}
-        <SkillsSection sectionId="skills" />
+        <SkillsSection
+          ref={(el) => (sectionRefs.current[3] = el)}
+          sectionId="skills"
+        />
 
         {/* Experience section */}
-        <ExperienceSection sectionId="experience" />
+        <ExperienceSection
+          ref={(el) => (sectionRefs.current[4] = el)}
+          sectionId="experience"
+        />
 
         {/* Contact section */}
-        <ContactSection sectionId="contact" />
+        <ContactSection
+          ref={(el) => (sectionRefs.current[5] = el)}
+          sectionId="contact"
+        />
       </main>
 
       {/* back to top */}

@@ -2,11 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import React, { useEffect, useRef, useState } from "react";
-import { IoMdDownload } from "react-icons/io";
 import SplitType from "split-type";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -14,7 +10,7 @@ import { DownloadResume, ScrollButton } from "../components";
 
 gsap.registerPlugin(TextPlugin);
 
-const HeroSection = ({ sectionId }) => {
+const HeroSection = ({ sectionId, ref }) => {
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark"
   );
@@ -98,9 +94,10 @@ const HeroSection = ({ sectionId }) => {
       "t2"
     );
   }, {});
+  
 
   return (
-    <section id={sectionId} className=" relative ">
+    <section ref={ref} id={sectionId} className=" relative ">
       {/* <h1>HeroSection</h1> */}
       {/* {darkMode && <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
         <video muted autoPlay loop playsInline src="/videoplayback (1).mp4" className=' object-bottom w-full '></video>
