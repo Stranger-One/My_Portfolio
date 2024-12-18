@@ -83,49 +83,80 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
         // markers: true,
       },
     });
+
+    gsap.from(".skillItem", {
+      x: 20,
+      opacity: 0,
+      delay: 1,
+      // duration: 1,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: ".skill-container",
+        start: "90% 90%",
+        end: "+=50",
+        scrub: 0.4,
+        // markers: true,
+      },
+    });
+    
+    gsap.to(".aboutHeadingContainer", {
+      height: 0,
+      scrollTrigger: {
+        trigger: ".aboutHeadingContainer",
+        start: "100% 20%",
+        end: "+=100",
+        scrub: 0.4,
+        // markers: true,
+      },
+    });
+  
   }, {});
 
   return (
-    <section id={sectionId} ref={ref} className="relative flex flex-col gap-20">
-      <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center">
-        <h1
-          ref={aboutPageRef}
-          className="w-fit text-9xl font-freeman tracking-wider font-semibold cursor-none"
-          onMouseEnter={()=>setMouseFollowerSize("big")}
-          onMouseLeave={()=>setMouseFollowerSize("small")}
-        >
-          About Me.
-        </h1>
+    <section
+      id={sectionId}
+      ref={ref}
+      className="section relative flex flex-col gap-20"
+    >
+      <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center ">
+        <div className=" w-fit  aboutHeadingContainer relative overflow-hidden">
+          <h1
+            ref={aboutPageRef}
+            className="w-fit text-5xl md:text-9xl font-freeman tracking-wider font-semibold cursor-none "
+            onMouseEnter={() => setMouseFollowerSize("big")}
+            onMouseLeave={() => setMouseFollowerSize("small")}
+          >
+            About <span className="highlight">Me.</span>
+          </h1>
+        </div>
         <IoIosArrowDropdown
           size={40}
-          className="animate-bounce absolute bottom-20 left-1/2 -translate-x-1/2"
+          className="animate-bounce absolute bottom-20 "
         />
       </div>
 
-      <div
-        className=" sticky top-24 w-full h-screen bg-background-light dark:bg-background-dark py-20"
-      >
-        {/* <h2 className="mt-16 mx-auto text-3xl w-fit">About Me.</h2> */}
-        <div className="grid grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
+      <div className="sticky top-24 w-full h-fit md:h-screen bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
           {/* Left: Introduction */}
-          <div className="relative">
-            <h2 className="parah text-5xl font-bold mb-5 text-primary font-freeman tracking-wider">
+          <div className="relative text-center md:text-left">
+            <h2 className="parah text-3xl md:text-5xl font-bold mb-5 text-primary font-freeman tracking-wider">
               About Me
             </h2>
-            <p className="parah text-2xl leading-7 mb-5 cursor-none">
+            <p className="parah text-xl md:text-2xl leading-6 md:leading-7 mb-5 cursor-none">
               Hello! I'm Dolamani Rohidas, a passionate and results-driven MERN
               Stack Developer with experience in building highly interactive and
               scalable web applications. I specialize in React.js, Node.js, and
               Socket.IO, along with expertise in integrating services like
               WebRTC, Cloudinary, and MongoDB.
             </p>
-            <p className="parah text-2xl font-normal leading-7 mb-5 cursor-none">
+            <p className="parah text-xl md:text-2xl font-normal leading-6 md:leading-7 mb-5 cursor-none">
               I enjoy turning complex problems into simple, beautiful, and
               intuitive solutions. My journey started with a deep interest in
               coding, and I have since mastered tools that bring ideas to life.
             </p>
+
             {/* CTA Buttons */}
-            <div className="flex btns gap-4">
+            <div className="flex flex-col md:flex-row btns gap-4">
               <DownloadResume />
               <ScrollButton varient="outline" to="contact">
                 Let's Connect
@@ -134,8 +165,8 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
           </div>
 
           {/* Right: Skills Grid */}
-          <div className="skill-container text-center bg-secondary-light p-8 rounded-xl ">
-            <h3 className="text-2xl mb-4 text-secondary-dark font-freeman tracking-wider">
+          <div className="skill-container text-center bg-secondary-light p-8 rounded-xl z-30 relative ">
+            <h3 className="text-2xl mb-4 text-secondary-dark font-freeman tracking-wider cursor-none">
               My Tech Stack
             </h3>
             <ul className="skills-list">
@@ -155,7 +186,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="skillItem bg-background-light rounded-lg text-center p-2 hover:bg-primary duration-150 text-text-light cursor-pointer "
+                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary text-text-light cursor-pointer "
                 >
                   {item}
                 </li>

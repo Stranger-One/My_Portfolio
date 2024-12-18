@@ -71,14 +71,14 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full relative bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div className="min-h-screen select-none md:select-auto w-full relative bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
       <MouseFollower mouseFollowerSize={mouseFollowerSize} />
 
       {/* Header */}
       <Header isOnTop={isOnTop} activeSection={activeSection} />
 
       {/* Main */}
-      <main className="w-full px-10">
+      <main className="w-full">
         {/* Hero section */}
         <HeroSection
           ref={(el) => (sectionRefs.current[0] = el)}

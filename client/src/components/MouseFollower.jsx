@@ -32,7 +32,7 @@ const MouseFollower = ({ mouseFollowerSize }) => {
       ref={followerRef}
       className={`${
         mouseFollowerSize === "big" ? "w-16 h-16" : "w-7 h-7"
-      } rounded-full border-[1px] absolute top-0 left-0 z-20 pointer-events-none border-background-light bg-background-light mix-blend-difference `}
+      } rounded-full border-[1px] absolute top-0 left-0 z-20 pointer-events-none border-background-light bg-background-light mix-blend-difference hidden md:block `}
     ></div>
   );
 };

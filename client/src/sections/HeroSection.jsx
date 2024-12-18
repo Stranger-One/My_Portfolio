@@ -97,29 +97,25 @@ const HeroSection = ({ sectionId, ref }) => {
   
 
   return (
-    <section ref={ref} id={sectionId} className=" relative ">
-      {/* <h1>HeroSection</h1> */}
-      {/* {darkMode && <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
-        <video muted autoPlay loop playsInline src="/videoplayback (1).mp4" className=' object-bottom w-full '></video>
-      </div>} */}
-      <div className="absolute top-0 left-0 pt-16 w-full h-full grid grid-cols-2 gap-2">
-        <div className=" flex flex-col justify-center pl-20 font-courgette">
+    <section ref={ref} id={sectionId} className="w-full md:h-screen relative flex items-center justify-center pt-20 md:pt-0 ">
+      <div className=" w-full  grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 mx-5  relative">
+        <div className="w-full flex flex-col justify-center md:pl-20 font-courgette order-2 md:order-none">
           <div className="overflow-hidden w-fit">
-            <h2 className="heading text-6xl font-semibold mb-4 font-freeman cursor-none">
+            <h2 className="heading text-4xl md:text-6xl font-semibold mb-4 font-freeman cursor-none">
               Hi, I'm <span className="text-primary">Dola.</span>
             </h2>
           </div>
-          <p className="tagline text-3xl cursor-none w-fit">
-            "Building seamless web solutions with <br />
-            the power of the MERN Stack"
+
+          <p className="tagline text-2xl md:text-3xl cursor-none ">
+            "Building seamless web solutions with the power of the MERN Stack."
           </p>
 
-          <div className="mt-20 flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4 mt-10">
             <DownloadResume />
             <ScrollButton varient="outline" to="contact">Contact Me</ScrollButton>
           </div>
 
-          <div className=" mt-10 flex gap-4 w-full ">
+          <div className="flex gap-4 w-full mt-10">
             {mediaLinks.map((link) => (
               <a
                 key={link.id}
@@ -136,14 +132,14 @@ const HeroSection = ({ sectionId, ref }) => {
           </div>
         </div>
 
-        <div className=" relative z-30 ">
+        <div className="relative z-30 h-[200px] md:h-[400px] order-1 md:order-none">
           <div
-            className="profileCircle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full animate-pulse"
+            className="profileCircle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full animate-pulse"
             style={{
               boxShadow: "0 0 80px #007BFF",
             }}
           ></div>
-          <div className="profileImage absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-2 border-background-dark dark:border-background-light rounded-full overflow-hidden">
+          <div className="profileImage absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] border-2 border-background-dark dark:border-background-light rounded-full overflow-hidden">
             <img
               src="/profile.png"
               alt=""
