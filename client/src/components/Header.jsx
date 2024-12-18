@@ -55,11 +55,11 @@ const Header = ({ activeSection, isOnTop }) => {
 
   return (
     <header
-      className={`header fixed flex items-center py-2 top-0 transition-all duration-100 ease-in-out z-50 w-full
+      className={`header fixed top-0 flex items-center justify-between py-2 md:duration-300 z-50 w-full
         ${
           isOnTop
-            ? " justify-between bg-secondary-light dark:bg-secondary-dark px-5 md:px-10 right-1/2 translate-x-1/2"
-            : "md:translate-y-5 md:w-fit md:justify-center justify-between rounded-lg bg-secondary-light dark:bg-secondary-dark md:bg-secondary-light/30 md:dark:bg-secondary-dark/30 md:backdrop-blur-sm px-5 md:px-2 right-0 md:right-1/2 md:translate-x-1/2 "
+            ? " bg-secondary-light dark:bg-secondary-dark px-5 md:px-10 right-1/2 translate-x-1/2"
+            : "md:translate-y-5 md:w-fit md:justify-center rounded-lg bg-secondary-light dark:bg-secondary-dark bg-secondary-light/30 dark:bg-secondary-dark/30 backdrop-blur-sm px-5 md:px-2 right-0 md:right-1/2 md:translate-x-1/2 "
         }
       `}
     >
@@ -71,12 +71,15 @@ const Header = ({ activeSection, isOnTop }) => {
         <h1 className="font-bold text-lg logo font-freeman">LOGO</h1>
       </div>
 
-      <nav className={`${isMenuOpen ? "h-fit " : "h-[0px]"} md:h-fit transition-all duration-150 md:rounded-lg font-courgette mt-14 md:mt-0 md:w-fit bg-secondary-light dark:bg-secondary-dark md:bg-transparent md:dark:bg-transparent absolute md:relative right-0 top-0 w-[100vw] md:p-0 overflow-hidden`}>
+      <nav className={`${isMenuOpen ? "h-fit " : "h-[0px]"} bg-secondary-light dark:bg-secondary-dark md:h-fit transition-all duration-150 md:rounded-lg font-courgette mt-14 md:mt-0 md:w-fit  md:bg-transparent md:dark:bg-transparent absolute md:relative right-0 top-0 w-[100vw] md:p-0 overflow-hidden`}>
         <ul className="flex gap-2 flex-col p-4 md:p-0 md:flex-row items-center justify-between">
           {links.map((link) => (
             <li key={link.id} className="navLink w-full">
               <span
-                onClick={() => scrollToSection(link.path)}
+                onClick={() => {
+                  scrollToSection(link.path)
+                  setIsMenuOpen((menu) => !menu)
+                }}
                 className={`${
                   link.path === `#${activeSection}`
                     ? "bg-primary "
@@ -94,14 +97,14 @@ const Header = ({ activeSection, isOnTop }) => {
         <button
           onClick={() => setDarkMode((mode) => !mode)}
           className={`${
-            isOnTop ? "" : "hidden"
+            isOnTop ? "" : "md:hidden"
           } p-2 rounded shadow-background-dark dark:shadow-background-light md:hoverShadow transition-opacity duration-100 ease-in-out bg-background-light dark:bg-background-dark `}
         >
           {darkMode ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
         </button>
         <button
         onClick={() => setIsMenuOpen((menu) => !menu)}
-          className={` p-2 rounded shadow-background-dark dark:shadow-background-light md:hoverShadow transition-opacity duration-100 ease-in-out md:hidden ${isOnTop ? "bg-background-light dark:bg-background-dark" : "bg-secondary-light dark:bg-secondary-dark"}`}
+          className={` p-2 rounded shadow-background-dark dark:shadow-background-light md:hoverShadow transition-opacity duration-100 ease-in-out md:hidden bg-background-light dark:bg-background-dark`}
         >
           <GiHamburgerMenu size={20} />
         </button>
