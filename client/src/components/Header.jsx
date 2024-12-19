@@ -53,6 +53,19 @@ const Header = ({ activeSection, isOnTop }) => {
     });
   }, {});
 
+  const handleMenu = () => {
+    if (!isMenuOpen) {
+      gsap.from(".navLink", {
+        opacity: 0,
+        x: -10,
+        duration: 0.5,
+        delay: 0.2,
+        stagger: 0.1,
+      });
+    }
+    setIsMenuOpen((menu) => !menu);
+  };
+
   return (
     <header
       className={`header fixed top-0 flex items-center justify-between py-2 md:duration-300 z-50 w-full
@@ -71,14 +84,18 @@ const Header = ({ activeSection, isOnTop }) => {
         <h1 className="font-bold text-lg logo font-freeman">LOGO</h1>
       </div>
 
-      <nav className={`${isMenuOpen ? "h-fit " : "h-[0px]"} bg-secondary-light dark:bg-secondary-dark md:h-fit transition-all duration-150 md:rounded-lg font-courgette mt-14 md:mt-0 md:w-fit  md:bg-transparent md:dark:bg-transparent absolute md:relative right-0 top-0 w-[100vw] md:p-0 overflow-hidden`}>
+      <nav
+        className={`${
+          isMenuOpen ? "h-fit " : "h-[0px]"
+        } bg-secondary-light dark:bg-secondary-dark md:h-fit transition-all duration-150 md:rounded-lg font-courgette mt-14 md:mt-0 md:w-fit  md:bg-transparent md:dark:bg-transparent absolute md:relative right-0 top-0 w-[100vw] md:p-0 overflow-hidden`}
+      >
         <ul className="flex gap-2 flex-col p-4 md:p-0 md:flex-row items-center justify-between">
           {links.map((link) => (
             <li key={link.id} className="navLink w-full">
               <span
                 onClick={() => {
-                  scrollToSection(link.path)
-                  setIsMenuOpen((menu) => !menu)
+                  scrollToSection(link.path);
+                  setIsMenuOpen((menu) => !menu);
                 }}
                 className={`${
                   link.path === `#${activeSection}`
@@ -92,7 +109,7 @@ const Header = ({ activeSection, isOnTop }) => {
           ))}
         </ul>
       </nav>
-      
+
       <div className="themeButton flex gap-2">
         <button
           onClick={() => setDarkMode((mode) => !mode)}
@@ -103,7 +120,7 @@ const Header = ({ activeSection, isOnTop }) => {
           {darkMode ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
         </button>
         <button
-        onClick={() => setIsMenuOpen((menu) => !menu)}
+          onClick={handleMenu}
           className={` p-2 rounded shadow-background-dark dark:shadow-background-light md:hoverShadow transition-opacity duration-100 ease-in-out md:hidden bg-background-light dark:bg-background-dark`}
         >
           <GiHamburgerMenu size={20} />
