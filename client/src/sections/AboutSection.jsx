@@ -13,7 +13,8 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
   const aboutPageRef = useRef();
 
   useGSAP(() => {
-    const text = new SplitType(".parah", { types: "words, chars" });
+    const text1 = new SplitType(".parah1", { types: "words, chars" });
+    const text2 = new SplitType(".parah2", { types: "words, chars" });
     // Words to highlight
     const wordsToHighlight = [
       "Dolamani",
@@ -26,7 +27,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
     const wordsToBold = ["MERN", "Stack", "Developer"];
 
     // Reapply highlight class
-    const words = document.querySelectorAll(".parah .word");
+    const words = document.querySelectorAll(".parah1 .word");
     words.forEach((word) => {
       wordsToHighlight.forEach((wordToChange) => {
         if (word.textContent.includes(wordToChange)) {
@@ -43,62 +44,84 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
       });
     });
 
-    gsap.from(text.chars, {
+    // const textTl = gsap.timeline();
+    gsap.from(".aboutMeHead", {
       scrollTrigger: {
-        trigger: text.chars,
-        // pin: true, // pin the trigger element while active
-        start: "top 60%", // when the top of the trigger hits the top of the viewport
-        end: "+=150", // end after scrolling 500px beyond the start
+        trigger: ".aboutMeHead",
+        start: "top 70%",
+        end: "top 70%",
         // markers: true,
-        scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        scrub: 2,
       },
-      y: 10,
-      x: -10,
+      opacity: 0,
+      duration: 1,
+      y: 100,
+    });
+
+    gsap.from(text1.chars, {
+      scrollTrigger: {
+        trigger: ".aboutMeHead",
+        start: "top 70%",
+        end: "top 70%",
+        // markers: true,
+        scrub: 2,
+      },
+      opacity: 0,
+      stagger: 0.01,
+    });
+
+    gsap.from(text2.chars, {
+      scrollTrigger: {
+        trigger: ".parah2",
+        start: "top 70%",
+        end: "top 70%",
+        // markers: true,
+        scrub: 2,
+      },
       opacity: 0,
       stagger: 0.01,
     });
 
     gsap.from(".btns", {
-      opacity: 0,
-      y: 10,
-      duration: 1,
       scrollTrigger: {
         trigger: ".btns",
-        start: "top 90%", // Animation starts when the element is 80% in view
-        end: "+=50", // Ends at 20% in view
-        scrub: true, // Smooth scroll-based animation
-        // markers: true, // Set true to debug with visual markers
+        start: "top 90%",
+        end: "top 90%",
+        // markers: true,
+        scrub: 0.5,
       },
-    });
-
-    gsap.from(".skill-container", {
-      x: 20,
-      opacity: 0,
+      y: 20,
       duration: 1,
+      opacity: 0,
+      // stagger: 0.5,
+    });
+    
+    gsap.from(".skill-container", {
       scrollTrigger: {
         trigger: ".skill-container",
-        start: "90% 90%",
-        end: "+=50",
-        scrub: 0.4,
+        start: "bottom 90%",
+        end: "bottom 90%",
+        scrub: 1,
         // markers: true,
       },
+      opacity: 0,
+      duration: 1,
     });
 
     gsap.from(".skillItem", {
-      x: 20,
-      opacity: 0,
-      delay: 1,
-      // duration: 1,
-      stagger: 0.5,
       scrollTrigger: {
         trigger: ".skill-container",
-        start: "90% 90%",
-        end: "+=50",
-        scrub: 0.4,
+        start: "bottom 90%",
+        end: "bottom 90%",
+        scrub: 1,
         // markers: true,
       },
+      x: 20,
+      delay: 2,
+      opacity: 0,
+      stagger: 0.1,
     });
-    
+
     gsap.to(".aboutHeadingContainer", {
       height: 0,
       scrollTrigger: {
@@ -109,17 +132,15 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
         // markers: true,
       },
     });
-  
   }, {});
 
   return (
     <section
-      id={sectionId}
       ref={ref}
       className="section relative flex flex-col gap-20"
     >
       <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center ">
-        <div className=" w-fit  aboutHeadingContainer relative overflow-hidden">
+        <div className=" w-fit aboutHeadingContainer relative overflow-hidden">
           <h1
             ref={aboutPageRef}
             className="w-fit text-5xl md:text-9xl font-freeman tracking-wider font-semibold cursor-none "
@@ -135,21 +156,24 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
         />
       </div>
 
-      <div className="sticky top-24 w-full h-fit md:h-screen bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
+      
+      <div id={sectionId} className="sticky top-24 w-full h-fit md:h-screen bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
           {/* Left: Introduction */}
-          <div className="relative text-center md:text-left">
-            <h2 className="parah text-3xl md:text-5xl font-bold mb-5 text-primary font-freeman tracking-wider">
-              About Me
-            </h2>
-            <p className="parah text-xl md:text-2xl leading-6 md:leading-7 mb-5 cursor-none">
+          <div className="leftContainer relative text-center md:text-left">
+            <div className="w-fit overflow-hidden mb-5 ">
+              <h2 className="aboutMeHead text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-widest  ">
+                About Me
+              </h2>
+            </div>
+            <p className="parah1 text-xl md:text-2xl leading-6 md:leading-7 mb-5 cursor-none">
               Hello! I'm Dolamani Rohidas, a passionate and results-driven MERN
               Stack Developer with experience in building highly interactive and
               scalable web applications. I specialize in React.js, Node.js, and
               Socket.IO, along with expertise in integrating services like
               WebRTC, Cloudinary, and MongoDB.
             </p>
-            <p className="parah text-xl md:text-2xl font-normal leading-6 md:leading-7 mb-5 cursor-none">
+            <p className="parah2 text-xl md:text-2xl font-normal leading-6 md:leading-7 mb-5 cursor-none">
               I enjoy turning complex problems into simple, beautiful, and
               intuitive solutions. My journey started with a deep interest in
               coding, and I have since mastered tools that bring ideas to life.
@@ -157,8 +181,8 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col md:flex-row btns gap-4">
-              <DownloadResume />
-              <ScrollButton varient="outline" to="contact">
+              <DownloadResume className="btn" />
+              <ScrollButton className="btn" varient="outline" to="contact">
                 Let's Connect
               </ScrollButton>
             </div>
@@ -195,8 +219,6 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
           </div>
         </div>
       </div>
-      {/* <div className="bg-green-700/40 sticky top-10 w-full h-screen"></div>
-      <div className="bg-green-900/40 sticky top-10 w-full h-screen"></div> */}
     </section>
   );
 };

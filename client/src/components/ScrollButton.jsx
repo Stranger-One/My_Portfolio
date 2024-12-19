@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import React from "react";
 
-const ScrollButton = ({ children, varient = "outline", to = "" }) => {
+const ScrollButton = ({ children, varient = "outline", to = "", className }) => {
 
   const scrollToSection = (section) => {
     gsap.to(window, { duration: 1, scrollTo: section });
@@ -14,7 +14,7 @@ const ScrollButton = ({ children, varient = "outline", to = "" }) => {
         varient === "outline"
           ? "bg-transparent border-[1px] border-primary"
           : "bg-primary"
-      } `}
+      } ${className} `}
     >
       {children}
     </button>

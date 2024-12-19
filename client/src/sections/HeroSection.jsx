@@ -50,48 +50,42 @@ const HeroSection = ({ sectionId, ref }) => {
     });
 
     const tl = gsap.timeline();
-    tl.from(".heading", {
-      y: 100,
-      opacity: 0,
-      delay: 2,
-    });
-    tl.from(
-      text.chars,
-      {
-        y: 20,
-        x: -20,
-        opacity: 0,
-        stagger: 0.01,
-      },
-      "t1"
-    );
-
     tl.from(
       [".profileCircle", ".profileImage"],
       {
         duration: 1,
         scale: 0,
         stagger: 0.1,
+        delay: 2
       },
-      "t1"
     );
+    tl.from(".heading", {
+      y: 100,
+      opacity: 0,
+    });
+    tl.from(
+      text.chars,
+      {
+        opacity: 0,
+        stagger: 0.01,
+      },
+    );
+
+    
     tl.from(
       ".actionButton",
       {
         opacity: 0,
         stagger: 0.01,
       },
-      "t2"
     );
     tl.from(
       ".mediaLink",
       {
         opacity: 0,
-        y: 10,
-        delay: 0.2,
-        stagger: 0.01,
+        x: -10,
+        stagger: 0.1,
       },
-      "t2"
     );
   }, {});
   
@@ -106,7 +100,7 @@ const HeroSection = ({ sectionId, ref }) => {
             </h2>
           </div>
 
-          <p className="tagline text-2xl md:text-3xl cursor-none ">
+          <p className="tagline text-2xl md:text-3xl cursor-none md:w-[80%]  ">
             "Building seamless web solutions with the power of the MERN Stack."
           </p>
 
