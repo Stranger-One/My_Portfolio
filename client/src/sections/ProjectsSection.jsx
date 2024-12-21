@@ -359,10 +359,7 @@ const ProjectsSection = ({ sectionId, ref }) => {
             </h2>
             <button
               type="button"
-              onClick={() => {
-                setIsOpenFilter((state) => !state);
-                console.log("click");
-              }}
+              onClick={() => setIsOpenFilter((state) => !state)}
               className="project-heading bg-background-light dark:bg-background-dark border-[1px] border-text-light dark:border-text-dark flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 rounded-lg relative group z-30 font-courgette "
             >
               <LuSettings2 size={20} />
