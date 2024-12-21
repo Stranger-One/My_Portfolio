@@ -137,7 +137,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
   return (
     <section
       ref={ref}
-      className="section relative flex flex-col gap-20"
+      className="section relative flex flex-col gap-20 "
     >
       <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center ">
         <div className=" w-fit aboutHeadingContainer relative overflow-hidden">
@@ -157,7 +157,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
       </div>
 
       
-      <div id={sectionId} className="sticky top-24 w-full h-fit md:h-screen bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
+      <div id={sectionId} className="sticky top-24 w-full h-fit  bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
           {/* Left: Introduction */}
           <div className="leftContainer relative text-center md:text-left">

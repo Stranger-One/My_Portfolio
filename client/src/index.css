@@ -21,6 +21,9 @@
 .lightHoverShadow:hover {
   box-shadow: 0 0 10px #3f3f3f;
 }
+.boxShadow{
+  box-shadow: 0 0 10px #acacac;
+}
 .darkHoverShadow:hover {
   box-shadow: 0 0 10px #acacac;
 }
