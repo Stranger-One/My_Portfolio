@@ -84,13 +84,14 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
 
     gsap.from(".btns", {
       scrollTrigger: {
-        trigger: ".btns",
-        start: "top 90%",
-        end: "top 90%",
+        trigger: ".parah2",
+        start: "top 70%",
+        end: "top 70%",
         // markers: true,
         scrub: 0.5,
       },
       y: 20,
+      delay: 1,
       duration: 1,
       opacity: 0,
       // stagger: 0.5,
@@ -99,8 +100,8 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
     gsap.from(".skill-container", {
       scrollTrigger: {
         trigger: ".skill-container",
-        start: "bottom 90%",
-        end: "bottom 90%",
+        start: "top 60%",
+        end: "top 60%",
         scrub: 1,
         // markers: true,
       },
@@ -111,8 +112,8 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
     gsap.from(".skillItem", {
       scrollTrigger: {
         trigger: ".skill-container",
-        start: "bottom 90%",
-        end: "bottom 90%",
+        start: "top 60%",
+        end: "top 60%",
         scrub: 1,
         // markers: true,
       },

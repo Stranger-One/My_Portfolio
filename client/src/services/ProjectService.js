@@ -7,7 +7,7 @@ export const getProjects = async (category) => {
     try {
         const response = await axiosInstance.get('/project/getProjects', {
             params: {
-                category: JSON.stringify(category)
+                category: category?JSON.stringify(category):null
             }
         });
         return response.data;

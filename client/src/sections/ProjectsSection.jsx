@@ -15,11 +15,6 @@ const ProjectsSection = ({ sectionId, ref }) => {
   const [projects, setProjects] = useState();
 
   const filtereProjects = async () => {
-    // console.log({
-    //   frontend,
-    //   backend,
-    //   fullStack,
-    // });
 
     const filter = [];
     if (frontend) filter.push("Frontend");
@@ -42,8 +37,10 @@ const ProjectsSection = ({ sectionId, ref }) => {
     }
   };
 
+
+
   useEffect(() => {
-    const projects = allProjects.slice(0, showProjects);
+    const projects = allProjects?.slice(0, showProjects);
     // console.log(showProjects, projects);
     setProjects(projects);
   }, [showProjects, allProjects]);
