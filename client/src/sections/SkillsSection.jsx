@@ -18,7 +18,7 @@ const skills = [
 const SkillBar = ({ name, proficiency, barRef, className }) => {
   return (
     <div className={` ${className}`}>
-      <div className="flex justify-between text-xl text-text-light dark:text-text-dark mb-2 overflow-hidden">
+      <div className="flex justify-between text-xl text-text-light dark:text-text-dark mb-2 overflow-hidden font-courgette">
         <span className="cursor-none skill-names">{name}</span>
         <span className="cursor-none skill-names">{proficiency}%</span>
       </div>

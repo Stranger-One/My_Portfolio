@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LuSettings2 } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import { getProjects } from "../services/ProjectService";
+import { LuLoaderCircle } from "react-icons/lu";
+
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -17,8 +19,10 @@ const ProjectsSection = ({ sectionId, ref }) => {
   const [showProjects, setShowProjects] = useState(6);
   const [allProjects, setAllProjects] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const filtereProjects = async () => {
+    setLoading(true);
     const filter = [];
     if (frontend) filter.push("Frontend");
     if (backend) filter.push("Backend");
@@ -28,6 +32,7 @@ const ProjectsSection = ({ sectionId, ref }) => {
     // console.log("response", response);
     setShowProjects(6);
     setAllProjects(response?.data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -74,34 +79,6 @@ const ProjectsSection = ({ sectionId, ref }) => {
     });
   }, {});
 
-  // // Apply GSAP animations after projects are rendered
-  // useEffect(() => {
-  //   if (projects?.length > 0) {
-  //     // Remove previous ScrollTriggers for project cards only
-  //     ScrollTrigger.getAll()
-  //       .filter((trigger) =>
-  //         trigger.vars?.trigger?.classList?.contains("project-card")
-  //       )
-  //       .forEach((trigger) => trigger.kill());
-
-  //     gsap.from(".project-card", {
-  //       scrollTrigger: {
-  //         trigger: ".project-card",
-  //         start: "top 85%",
-  //         end: "top 30%",
-  //         scrub: 1,
-  //       },
-  //       opacity: 0,
-  //       y: 50,
-  //       duration: 1,
-  //       stagger: 0.5,
-  //       ease: "power2.out",
-  //     });
-
-  //     // Refresh ScrollTrigger to account for new elements
-  //     ScrollTrigger.refresh();
-  //   }
-  // }, [projects, showProjects]);
 
   return (
     <section ref={ref} id={sectionId} className="section">
@@ -173,13 +150,17 @@ const ProjectsSection = ({ sectionId, ref }) => {
             </div>
           </button>
         </div>
-        <div className="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {loading ? (
+          <div className="flex justify-center items-center h-screen">
+            <LuLoaderCircle size={32} className="text-text-light dark:text-text-dark animate-spin" />
+          </div>
+        ) : (<div className="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects?.map((project, index) => (
             <div key={index} className="project-card">
               <ProjectCard project={project} />
             </div>
           ))}
-        </div>
+        </div>)}
         <div className="w-full flex justify-end items-center mt-10">
           <button
             type="button"

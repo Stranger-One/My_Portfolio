@@ -6,7 +6,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="min-h-[250px] h-full project-card  rounded-lg shadow-lg bg-cover bg-center relative group overflow-hidden border-[1px] border-text-light dark:border-text-dark dark:text-text-light text-text-dark font-courgette"
+      className="min-h-[250px] h-full rounded-lg shadow-lg bg-cover bg-center relative group overflow-hidden border-[1px] border-text-light dark:border-text-dark dark:text-text-light text-text-dark font-courgette"
       style={{
         backgroundImage: `url(${project?.thumbnail || "/Stranger-One.png"})`,
       }}
