@@ -26,8 +26,8 @@ const Header = ({ activeSection, isOnTop }) => {
   const links = [
     { id: 1, label: "Home", path: "#hero" },
     { id: 2, label: "About", path: "#about" },
-    { id: 3, label: "Projects", path: "#projects" },
     { id: 4, label: "Skills", path: "#skills" },
+    { id: 3, label: "Projects", path: "#projects" },
     { id: 5, label: "Experience", path: "#experience" },
     { id: 6, label: "Contact", path: "#contact" },
   ];

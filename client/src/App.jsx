@@ -92,16 +92,16 @@ function App() {
           setMouseFollowerSize={setMouseFollowerSize}
         />
 
-        {/* Projects section */}
-        <ProjectsSection
-          ref={(el) => (sectionRefs.current[2] = el)}
-          sectionId="projects"
-        />
-
         {/* Skills section */}
         <SkillsSection
           ref={(el) => (sectionRefs.current[3] = el)}
           sectionId="skills"
+        />
+
+        {/* Projects section */}
+        <ProjectsSection
+          ref={(el) => (sectionRefs.current[2] = el)}
+          sectionId="projects"
         />
 
         {/* Experience section */}
@@ -121,7 +121,7 @@ function App() {
       {/* <BackToTopBtn/> */}
 
       {/* Footer */}
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </div>
     // </ReactLenis>
   );
