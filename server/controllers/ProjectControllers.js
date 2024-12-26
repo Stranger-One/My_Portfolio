@@ -4,9 +4,15 @@ export const createProject = async (req, res) => {
     try {
         const file = req.file;
         // console.log('file', file);
-        
+
+        if (!file) {
+            return res.status(400).json({
+                message: "Please upload a file"
+            });
+        }
+
         const projectData = req.body;
-        projectData.thumbnail = file.path;
+        projectData.thumbnail = file?.path;
         // console.log('projectData', projectData);
 
         if (!projectData) {
@@ -37,11 +43,16 @@ export const createProject = async (req, res) => {
 export const getProjects = async (req, res) => {
     try {
         let { category } = req.query;
-        category = JSON.parse(category);
-        
+        if (category) {
+            category = JSON.parse(category);
+        }
+
+
         // console.log('category', category);
-        const filter = category.length ? {category: { $in: category }} : {};
-        const projects = await Project.find(filter).sort({ createdAt: -1 });
+        const filter = category?.length ? { category: { $in: category } } : {};
+        const projects = await Project.find(filter)
+            .sort({ startDate: -1, createdAt: -1 })
+            // .select('title startDate endDate createdAt');
 
         res.status(200).json({
             success: true,
@@ -60,8 +71,20 @@ export const getProjects = async (req, res) => {
 
 export const updateProject = async (req, res) => {
     try {
-        const { id, newData } = req.body;
-        if(!id || !newData) {
+        const id = req.query.id;
+        console.log('id', id);
+        const file = req.file;
+        console.log('file', file);
+
+        const newData  = req.body || {};
+
+        if (file) {
+            newData.thumbnail = file?.path;
+        }
+        console.log('newData', newData);
+
+
+        if (!id || !newData) {
             return res.status(400).json({
                 success: false,
                 message: 'Project ID and new data are required',

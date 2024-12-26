@@ -13,6 +13,6 @@ router.get('/', (req, res) => {
 
 router.post('/create', upload.single('thumbnail'), createProject);
 router.get('/getProjects', getProjects);
-router.put('/update', updateProject);
+router.put('/update', upload.single('thumbnail'), updateProject);
 
 export default router;

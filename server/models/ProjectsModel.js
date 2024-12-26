@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const projectSchema = new mongoose.Schema({
     thumbnail: {
         type: String,
-        required: [true, 'Please provide a thumbnail image']
+        default:"https://res.cloudinary.com/dolamani-cloudinary/image/upload/v1735233495/My_Portfolio/images/Project%20Default%20Background-1735233490598.jpg" 
     },
     title: {
         type: String,
@@ -12,7 +12,7 @@ const projectSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: {
-            values:['Frontend', 'Backend', 'FullStack'],
+            values: ['Frontend', 'Backend', 'FullStack'],
             message: 'Category must be Frontend, Backend or FullStack'
         },
         required: [true, 'Please provide a category']
@@ -36,9 +36,22 @@ const projectSchema = new mongoose.Schema({
     liveLink: {
         type: String,
         required: [true, 'Please provide a live link']
-    }
-},{
+    },
+    startDate: { type: Date },
+    endDate: { type: Date }
+}, {
     timestamps: true
+});
+
+// Middleware to convert dates
+projectSchema.pre('save', function (next) {
+    if (this.startDate) {
+        this.startDate = new Date(this.startDate);
+    }
+    if (this.endDate) {
+        this.endDate = new Date(this.endDate);
+    }
+    next();
 });
 
 const Project = mongoose.model('Project', projectSchema);
