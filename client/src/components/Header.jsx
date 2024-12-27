@@ -101,7 +101,7 @@ const Header = ({ activeSection, isOnTop }) => {
                   link.path === `#${activeSection}`
                     ? "bg-primary "
                     : "bg-background-light dark:bg-background-dark"
-                } transition-all duration-150 px-4 py-2 inline-block rounded-md cursor-pointer w-full text-center hover:bg-primary hover:dark:bg-primary`}
+                } transition-all duration-150 px-4 py-2 inline-block rounded-md cursor-pointer w-full text-center hover:bg-primary hover:dark:bg-primary text-text-light dark:text-text-dark`}
               >
                 {link.label}
               </span>

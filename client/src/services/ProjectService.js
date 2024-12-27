@@ -11,7 +11,7 @@ export const getProjects = async (category) => {
                 category: category?JSON.stringify(category):null
             }
         });
-        console.log("projects", response.data)
+        // console.log("projects", response.data)
         return response.data;
         
     } catch (error) {

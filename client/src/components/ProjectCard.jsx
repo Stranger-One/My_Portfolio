@@ -6,7 +6,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="min-h-[250px] h-full rounded-lg shadow-lg bg-cover bg-center relative group overflow-hidden border-[1px] border-text-light dark:border-text-dark dark:text-text-light text-text-dark font-courgette"
+      className="min-h-[250px] h-full rounded-lg shadow-sm bg-cover bg-center relative group overflow-hidden  dark:shadow-secondary-light shadow-secondary-dark text-secondary-light dark:text-secondary-dark hover:scale-[1.04] duration-150 font-courgette "
       style={{
         backgroundImage: `url(${project?.thumbnail || "/Stranger-One.png"})`,
       }}
@@ -36,7 +36,7 @@ const ProjectCard = ({ project }) => {
             href={project?.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-1 bg-primary rounded-md cursor-pointer relative z-30 md:opacity-0 delay-500 duration-200 md:group-hover:opacity-100"
+            className="px-4 py-1 bg-primary rounded-md cursor-pointer relative z-30 md:opacity-0 delay-500 duration-200 md:group-hover:opacity-100 text-text-light"
           >
             GitHub
           </a>
@@ -44,7 +44,7 @@ const ProjectCard = ({ project }) => {
             href={project?.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-1 bg-primary rounded-md cursor-pointer relative z-30 md:opacity-0 delay-500 duration-200 md:group-hover:opacity-100"
+            className="px-4 py-1 bg-primary rounded-md cursor-pointer relative z-30 md:opacity-0 delay-500 duration-200 md:group-hover:opacity-100 text-text-light"
           >
             Live Demo
           </a>

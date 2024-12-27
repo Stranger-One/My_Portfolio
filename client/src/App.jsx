@@ -14,12 +14,14 @@ import {
   SkillsSection,
 } from "./sections";
 import Lenis from "lenis";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const [mouseFollowerSize, setMouseFollowerSize] = useState("small");
   const [isOnTop, setIsOnTop] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   const sectionRefs = useRef([]);
+    const [showProjects, setShowProjects] = useState(6);
 
   const handleScroll = (e) => {
     // console.log((window.scrollY).toFixed(0))
@@ -71,7 +73,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen select-none md:select-auto w-full relative bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div className="min-h-screen select-none md:select-auto w-full relative bg-background-light dark:bg-background-dark  text-secondary-dark dark:text-secondary-light">
       <MouseFollower mouseFollowerSize={mouseFollowerSize} />
 
       {/* Header */}
@@ -99,13 +101,13 @@ function App() {
         />
 
         {/* Projects section */}
-        <ProjectsSection
+        <ProjectsSection showProjects={showProjects} setShowProjects={setShowProjects}
           ref={(el) => (sectionRefs.current[2] = el)}
           sectionId="projects"
         />
 
         {/* Experience section */}
-        <ExperienceSection
+        <ExperienceSection showProjects={showProjects} setShowProjects={setShowProjects}
           ref={(el) => (sectionRefs.current[4] = el)}
           sectionId="experience"
         />
@@ -122,6 +124,8 @@ function App() {
 
       {/* Footer */}
       {/* <footer>Footer</footer> */}
+
+      <Toaster />
     </div>
     // </ReactLenis>
   );

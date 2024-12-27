@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from './config/database.js';
 import ProjectRouter from './routes/ProjectRouter.js';
+import EmailRouter from './routes/EmailRouter.js';   
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/project', ProjectRouter)
+app.use('/api/email', EmailRouter)
 
 
 

@@ -12,11 +12,11 @@ import { LuLoaderCircle } from "react-icons/lu";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsSection = ({ sectionId, ref }) => {
+const ProjectsSection = ({ sectionId, ref, showProjects, setShowProjects }) => {
   const [frontend, setFrontend] = useState(false);
   const [backend, setBackend] = useState(false);
   const [fullStack, setFullStack] = useState(false);
-  const [showProjects, setShowProjects] = useState(6);
+
   const [allProjects, setAllProjects] = useState([]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -91,11 +91,11 @@ const ProjectsSection = ({ sectionId, ref }) => {
           </div>
           <button
             type="button"
-            className="filter-button bg-background-light dark:bg-background-dark border-[1px] border-text-light dark:border-text-dark flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 rounded-lg relative group z-30 font-courgette "
+            className="filter-button bg-background-light dark:bg-background-dark border-[1px] border-secondary-light dark:border-secondary-dark flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 rounded-lg relative group z-30 font-courgette "
           >
             <LuSettings2 size={20} />
             <span className="md:text-lg">filter</span>
-            <IoIosArrowDown />
+            <IoIosArrowDown size={20} />
 
             <div
               className={`absolute top-10 right-0 pt-4 z-40 group-hover:block hidden `}

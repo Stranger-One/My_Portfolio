@@ -72,16 +72,16 @@ export const getProjects = async (req, res) => {
 export const updateProject = async (req, res) => {
     try {
         const id = req.query.id;
-        console.log('id', id);
+        // console.log('id', id);
         const file = req.file;
-        console.log('file', file);
+        // console.log('file', file);
 
         const newData  = req.body || {};
 
         if (file) {
             newData.thumbnail = file?.path;
         }
-        console.log('newData', newData);
+        // console.log('newData', newData);
 
 
         if (!id || !newData) {

@@ -91,7 +91,7 @@ const HeroSection = ({ sectionId, ref }) => {
   
 
   return (
-    <section ref={ref} id={sectionId} className="w-full md:h-screen relative flex items-center justify-center pt-20 md:pt-0 ">
+    <section ref={ref} id={sectionId} className="w-full md:h-screen relative flex items-center justify-center pt-20 md:pt-0">
       <div className=" w-full  grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 mx-5  relative">
         <div className="w-full flex flex-col justify-center md:pl-20 font-courgette order-2 md:order-none">
           <div className="overflow-hidden w-fit">
@@ -105,7 +105,7 @@ const HeroSection = ({ sectionId, ref }) => {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 mt-10">
-            <DownloadResume />
+            <DownloadResume className={' text-secondary-dark '} />
             <ScrollButton varient="outline" to="contact">Contact Me</ScrollButton>
           </div>
 
@@ -117,10 +117,7 @@ const HeroSection = ({ sectionId, ref }) => {
                 target="_blank"
                 className="mediaLink rounded-sm mediaLinksHoverShadow "
               >
-                <link.icon
-                  size={30}
-                  className="text-text-light dark:text-text-dark bg-transparent "
-                />
+                <link.icon size={30} />
               </a>
             ))}
           </div>

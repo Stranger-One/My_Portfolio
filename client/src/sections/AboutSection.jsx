@@ -138,7 +138,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
   return (
     <section
       ref={ref}
-      className="section relative flex flex-col gap-20 "
+      className="section relative flex flex-col gap-20"
     >
       <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center ">
         <div className=" w-fit aboutHeadingContainer relative overflow-hidden">
@@ -158,23 +158,23 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
       </div>
 
       
-      <div id={sectionId} className="sticky top-24 w-full h-fit  bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 border-background-dark dark:border-background-light">
+      <div id={sectionId} className="sticky top-24 w-full h-fit bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 dark:border-secondary-light border-secondary-dark">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
           {/* Left: Introduction */}
-          <div className="leftContainer relative text-center md:text-left">
+          <div className="leftContainer relative text-center md:text-left ">
             <div className="w-fit overflow-hidden mb-5 ">
-              <h2 className="aboutMeHead text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-widest  ">
+              <h2 className="aboutMeHead text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-wider">
                 About Me
               </h2>
             </div>
-            <p className="parah1 text-xl md:text-2xl leading-6 md:leading-7 mb-5 cursor-none">
+            <p className="parah1 text-xl md:text-2xl leading-6 md:leading-7 mb-5 cursor-none ">
               Hello! I'm Dolamani Rohidas, a passionate and results-driven MERN
               Stack Developer with experience in building highly interactive and
               scalable web applications. I specialize in React.js, Node.js, and
               Socket.IO, along with expertise in integrating services like
               WebRTC, Cloudinary, and MongoDB.
             </p>
-            <p className="parah2 text-xl md:text-2xl font-normal leading-6 md:leading-7 mb-5 cursor-none">
+            <p className="parah2 text-xl md:text-2xl font-normal leading-6 md:leading-7 mb-5 cursor-none ">
               I enjoy turning complex problems into simple, beautiful, and
               intuitive solutions. My journey started with a deep interest in
               coding, and I have since mastered tools that bring ideas to life.
@@ -211,7 +211,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary text-text-light cursor-pointer "
+                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary duration-150 text-text-light cursor-pointer "
                 >
                   {item}
                 </li>

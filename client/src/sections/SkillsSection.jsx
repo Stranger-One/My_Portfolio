@@ -18,7 +18,7 @@ const skills = [
 const SkillBar = ({ name, proficiency, barRef, className }) => {
   return (
     <div className={` ${className}`}>
-      <div className="flex justify-between text-xl text-text-light dark:text-text-dark mb-2 overflow-hidden font-courgette">
+      <div className="flex justify-between text-xl  mb-2 overflow-hidden font-courgette">
         <span className="cursor-none skill-names">{name}</span>
         <span className="cursor-none skill-names">{proficiency}%</span>
       </div>
@@ -85,7 +85,7 @@ const SkillsSection = ({ sectionId, ref }) => {
       id={sectionId}
       className="section pt-16 "
     >
-      <div className="skill-section w-full text-text-light dark:text-text-dark px-5 md:px-20 ">
+      <div className="skill-section w-full px-5 md:px-20 ">
         <div className=" overflow-hidden">
           <h2 className="skill-heading text-3xl md:text-5xl font-bold  text-primary font-freeman cursor-none">
             My Skills
