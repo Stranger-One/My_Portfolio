@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import SplitType from "split-type";
 import { FaGithubSquare } from "react-icons/fa";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
@@ -11,10 +11,6 @@ import { DownloadResume, ScrollButton } from "../components";
 gsap.registerPlugin(TextPlugin);
 
 const HeroSection = ({ sectionId, ref }) => {
-  const [darkMode, setDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark"
-  );
-  const textRef = useRef();
 
   const mediaLinks = [
     { id: "1", icon: FaGithubSquare, path: "https://github.com/Stranger-One" },

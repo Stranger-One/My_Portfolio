@@ -12,11 +12,11 @@ import { LuLoaderCircle } from "react-icons/lu";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsSection = ({ sectionId, ref, showProjects, setShowProjects }) => {
+const ProjectsSection = ({ sectionId, ref, }) => {
   const [frontend, setFrontend] = useState(false);
   const [backend, setBackend] = useState(false);
   const [fullStack, setFullStack] = useState(false);
-
+  const [showProjects, setShowProjects] = useState(6);
   const [allProjects, setAllProjects] = useState([]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);

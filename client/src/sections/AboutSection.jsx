@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowDropdown, IoMdDownload } from "react-icons/io";
 import { DownloadResume, MouseFollower, ScrollButton } from "../components";
@@ -211,7 +211,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary duration-150 text-text-light cursor-pointer "
+                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary text-text-light cursor-pointer "
                 >
                   {item}
                 </li>

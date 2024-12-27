@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  BackToTopBtn,
   Header,
   MouseFollower,
-  ScrollButton,
 } from "./components";
 import {
   AboutSection,
@@ -14,14 +12,14 @@ import {
   SkillsSection,
 } from "./sections";
 import Lenis from "lenis";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [mouseFollowerSize, setMouseFollowerSize] = useState("small");
   const [isOnTop, setIsOnTop] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   const sectionRefs = useRef([]);
-    const [showProjects, setShowProjects] = useState(6);
+    
 
   const handleScroll = (e) => {
     // console.log((window.scrollY).toFixed(0))
@@ -32,21 +30,6 @@ function App() {
     } else {
       setIsOnTop(true);
     }
-
-    // sectionRefs.current.forEach((section) => {
-    //   const offsetTop = section.offsetTop;
-    //   const offsetHeight = section.offsetHeight;
-
-    //   if (
-    //     scrollPosition >= offsetTop - 0 && // Adjust offset for earlier detection
-    //     scrollPosition <= offsetTop + offsetHeight
-    //   ) {
-    //     if (activeSection !== section.id) {
-    //       setActiveSection(section.id);
-    //       // console.log(section.id);
-    //     }
-    //   }
-    // });
   };
 
   useEffect(() => {
@@ -101,13 +84,13 @@ function App() {
         />
 
         {/* Projects section */}
-        <ProjectsSection showProjects={showProjects} setShowProjects={setShowProjects}
+        <ProjectsSection 
           ref={(el) => (sectionRefs.current[2] = el)}
           sectionId="projects"
         />
 
         {/* Experience section */}
-        <ExperienceSection showProjects={showProjects} setShowProjects={setShowProjects}
+        <ExperienceSection 
           ref={(el) => (sectionRefs.current[4] = el)}
           sectionId="experience"
         />
@@ -119,15 +102,8 @@ function App() {
         />
       </main>
 
-      {/* back to top */}
-      {/* <BackToTopBtn/> */}
-
-      {/* Footer */}
-      {/* <footer>Footer</footer> */}
-
       <Toaster />
     </div>
-    // </ReactLenis>
   );
 }
 

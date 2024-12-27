@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiLoaderCircle, BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaFacebookSquare, FaGithubSquare } from "react-icons/fa";
 import { sendEmail } from "../services/emailService";
@@ -18,30 +18,21 @@ const ContactSection = ({ sectionId, ref }) => {
     setFormData({ ...formData, [name]: value });
   };
   
-  // useEffect(()=>{
-  //   console.log("formData", formData);
-  // }, [formData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
 
-    // Send form data to backend
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
-
     // console.log("Form submitted", formData);
     const response = await sendEmail(formData);
 
     if(response?.success){
-      // console.log("Email sent successfully");
       toast.success("Email sent successfully");
       setFormData({ name: "", email: "", message: "" });
     } else {
-      // console.log("Error sending email");
       toast.success("Error sending email");
     }
 
-    // Clear form
     setLoading(false)
   };
 
@@ -67,7 +58,7 @@ const ContactSection = ({ sectionId, ref }) => {
     >
       <div className="w-full lg:flex lg:space-x-8 dark:bg-background-dark bg-background-light font-courgette">
         {/* Left Side */}
-        <div className="lg:w-1/2 p-6 space-y-6">
+        <div className="contact-left lg:w-1/2 p-6 space-y-6">
           <h2 className="text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-wider cursor-none">Get in Touch</h2>
           <p className="text-lg">
             I'm always open to discussing new projects, creative ideas, or
@@ -105,7 +96,7 @@ const ContactSection = ({ sectionId, ref }) => {
         </div>
 
         {/* Right Side */}
-        <div className="lg:w-1/2 p-6 z-30 relative dark:bg-background-dark bg-background-light rounded-lg shadow-md shadow-secondary-dark dark:shadow-secondary-light">
+        <div className="contact-right lg:w-1/2 p-6 z-30 relative dark:bg-background-dark bg-background-light rounded-lg shadow-md shadow-secondary-dark dark:shadow-secondary-light">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
