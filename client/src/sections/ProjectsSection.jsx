@@ -7,6 +7,7 @@ import { LuSettings2 } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import { getProjects } from "../services/ProjectService";
 import { LuLoaderCircle } from "react-icons/lu";
+import { serverProjects } from "../services/project";
 
 
 // Register GSAP plugins
@@ -17,7 +18,9 @@ const ProjectsSection = ({ sectionId, ref, }) => {
   const [backend, setBackend] = useState(false);
   const [fullStack, setFullStack] = useState(false);
   const [showProjects, setShowProjects] = useState(6);
-  const [allProjects, setAllProjects] = useState([]);
+  const [allProjects, setAllProjects] = useState([
+    ...serverProjects
+  ]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
 
