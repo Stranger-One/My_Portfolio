@@ -39,25 +39,26 @@ const ExperienceSection = ({ sectionId, ref }) => {
         "Led a feature development cycle, achieving 20% faster deployment times.",
       ],
     },
-  
   ];
 
   return (
-    <section ref={ref} id={sectionId} className="section h-full p-5 md:p-20">
-      <div className="w-full mb-5 flex items-center justify-between bg-background-light dark:bg-background-dark">
-        <div className="experience-heading overflow-hidden w-full">
-          <h2 className="text-3xl md:text-5xl font-bold  text-primary font-freeman cursor-none ">
-            Work History
-          </h2>
+    <section ref={ref} id={sectionId} className="section h-full">
+      <div className="section-container ">
+        <div className="w-full mb-5 flex items-center justify-between bg-background-light dark:bg-background-dark">
+          <div className="experience-heading overflow-hidden w-full">
+            <h2 className="text-3xl md:text-5xl font-bold  text-primary font-freeman cursor-none ">
+              Work History
+            </h2>
+          </div>
         </div>
-      </div>
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className=" h-full">
-          {experiences?.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
-          ))}
+        <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className=" h-full">
+            {experiences?.map((experience, index) => (
+              <ExperienceCard key={index} experience={experience} />
+            ))}
+          </div>
+          <div className=" rounded-lg shadow-sm shadow-white w-full h-[calc(100vh-160px)] hidden md:block sticky top-28"></div>
         </div>
-        <div className=" rounded-lg shadow-sm shadow-white w-full h-[calc(100vh-160px)] hidden md:block sticky top-28"></div>
       </div>
     </section>
   );

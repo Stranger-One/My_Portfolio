@@ -54,11 +54,11 @@ const ContactSection = ({ sectionId, ref }) => {
     <section
       ref={ref}
       id={sectionId}
-      className="section p-5 md:p-20 flex items-center justify-center"
+      className="section "
     >
-      <div className="w-full lg:flex lg:space-x-8 dark:bg-background-dark bg-background-light font-courgette">
+      <div className="section-container w-full lg:flex lg:space-x-8 dark:bg-background-dark bg-background-light font-courgette">
         {/* Left Side */}
-        <div className="contact-left lg:w-1/2 p-6 space-y-6">
+        <div className="contact-left lg:w-1/2 space-y-6">
           <h2 className="text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-wider cursor-none">Get in Touch</h2>
           <p className="text-lg">
             I'm always open to discussing new projects, creative ideas, or

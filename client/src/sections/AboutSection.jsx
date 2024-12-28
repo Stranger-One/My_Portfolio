@@ -156,10 +156,9 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
           className="animate-bounce absolute bottom-20 "
         />
       </div>
-
       
-      <div id={sectionId} className="sticky top-24 w-full h-fit bg-background-light dark:bg-background-dark p-5 md:p-20 border-t-2 dark:border-secondary-light border-secondary-dark">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] m-auto font-courgette">
+      <div id={sectionId} className="section-container sticky top-24 w-full h-fit bg-background-light dark:bg-background-dark border-t-2 dark:border-secondary-light border-secondary-dark">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-courgette">
           {/* Left: Introduction */}
           <div className="leftContainer relative text-center md:text-left ">
             <div className="w-fit overflow-hidden mb-5 ">
@@ -190,7 +189,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
           </div>
 
           {/* Right: Skills Grid */}
-          <div className="skill-container text-center bg-secondary-light p-8 rounded-xl z-30 relative ">
+          <div className="skill-container text-center bg-secondary-light rounded-xl z-30 relative p-6">
             <h3 className="text-2xl mb-4 text-secondary-dark font-freeman tracking-wider cursor-none">
               My Tech Stack
             </h3>

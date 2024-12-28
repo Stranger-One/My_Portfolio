@@ -87,9 +87,9 @@ const HeroSection = ({ sectionId, ref }) => {
   
 
   return (
-    <section ref={ref} id={sectionId} className="w-full md:h-screen relative flex items-center justify-center pt-20 md:pt-0">
-      <div className=" w-full  grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 mx-5  relative">
-        <div className="w-full flex flex-col justify-center md:pl-20 font-courgette order-2 md:order-none">
+    <section ref={ref} id={sectionId} className="section h-screen px-5 md:px-16 lg:px-24 flex items-center">
+      <div className="section-container w-full h-fit flex flex-col-reverse md:flex-row items-center gap-10 relative ">
+        <div className="w-full flex flex-col justify-center font-courgette">
           <div className="overflow-hidden w-fit">
             <h2 className="heading text-4xl md:text-6xl font-semibold mb-4 font-freeman cursor-none">
               Hi, I'm <span className="text-primary">Dola.</span>
@@ -119,14 +119,14 @@ const HeroSection = ({ sectionId, ref }) => {
           </div>
         </div>
 
-        <div className="relative z-30 h-[200px] md:h-[400px] order-1 md:order-none">
+        <div className="relative z-30 md:h-[400px] flex items-center justify-center">
           <div
-            className="profileCircle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full animate-pulse"
+            className="profileCircle w-[200px] h-[200px] md:w-[300px] md:h-[300px]  lg:w-[400px] lg:h-[400px] rounded-full animate-pulse"
             style={{
               boxShadow: "0 0 80px #007BFF",
             }}
           ></div>
-          <div className="profileImage absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] border-2 border-background-dark dark:border-background-light rounded-full overflow-hidden">
+          <div className="profileImage absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[300px] md:h-[300px]  lg:w-[400px] lg:h-[400px] border-2 border-background-dark dark:border-background-light rounded-full overflow-hidden">
             <img
               src="/profile.png"
               alt=""

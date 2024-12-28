@@ -83,9 +83,9 @@ const SkillsSection = ({ sectionId, ref }) => {
     <section
       ref={ref}
       id={sectionId}
-      className="section pt-16 "
+      className="section"
     >
-      <div className="skill-section w-full px-5 md:px-20 ">
+      <div className="section-container skill-section w-full">
         <div className=" overflow-hidden">
           <h2 className="skill-heading text-3xl md:text-5xl font-bold  text-primary font-freeman cursor-none">
             My Skills

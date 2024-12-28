@@ -85,7 +85,7 @@ const ProjectsSection = ({ sectionId, ref, }) => {
 
   return (
     <section ref={ref} id={sectionId} className="section">
-      <div className="projects-section w-full bg-background-light dark:bg-background-dark px-5 md:px-20 pt-16 ">
+      <div className="section-container w-full bg-background-light dark:bg-background-dark">
         <div className="w-full mb-5 relative flex items-center justify-between">
           <div className="overflow-hidden w-full">
             <h2 className="project-heading text-3xl md:text-5xl font-bold  text-primary font-freeman cursor-none ">

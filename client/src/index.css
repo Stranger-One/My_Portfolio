@@ -34,6 +34,43 @@
   /* padding: 0 0 0 40px; */
 }
 
+.section-container, .hero-section-container{
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  /* Styles for small devices like phones */
+  .section-container{
+    padding: 60px 20px 0;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Styles for tablets */
+  .section-container{
+    padding: 60px 30px 0;
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Styles for small laptops */
+  .section-container{
+    padding: 80px 40px 0;
+  }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+  /* Styles for desktops */
+  .section-container{
+    padding: 80px 60px 0;
+  }
+}
+@media (min-width: 1201px) {
+  /* Styles for large screens */
+  .section-container{
+    padding: 80px 80px 0;
+  }
+}
+
+
 .textStroke {
   text-shadow:
     -2px -2px 10px var(--primary),
