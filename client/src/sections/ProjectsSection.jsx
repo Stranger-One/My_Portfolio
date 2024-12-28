@@ -7,7 +7,7 @@ import { LuSettings2 } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import { getProjects } from "../services/ProjectService";
 import { LuLoaderCircle } from "react-icons/lu";
-import { serverProjects } from "../services/project";
+import { serverProjects } from "../services/data.js";
 
 
 // Register GSAP plugins
@@ -25,7 +25,7 @@ const ProjectsSection = ({ sectionId, ref, }) => {
   const [loading, setLoading] = useState(false);
 
   const filtereProjects = async () => {
-    setLoading(true);
+    // setLoading(true);
     const filter = [];
     if (frontend) filter.push("Frontend");
     if (backend) filter.push("Backend");
@@ -35,7 +35,7 @@ const ProjectsSection = ({ sectionId, ref, }) => {
     // console.log("response", response);
     setShowProjects(6);
     setAllProjects(response?.data);
-    setLoading(false);
+    // setLoading(false);
   };
 
   useEffect(() => {
@@ -158,20 +158,24 @@ const ProjectsSection = ({ sectionId, ref, }) => {
             <LuLoaderCircle size={32} className="text-text-light dark:text-text-dark animate-spin" />
           </div>
         ) : (<div className="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects?.map((project, index) => (
+          {projects.length ? projects?.map((project, index) => (
             <div key={index} className="project-card">
               <ProjectCard project={project} />
             </div>
-          ))}
+          )) : (
+            <div className="w-full h-[50vh] flex justify-center items-center col-span-full">
+              <h2 className="text-3xl font-freeman">No Projects Found</h2>
+            </div>
+          )}
         </div>)}
         <div className="w-full flex justify-end items-center mt-10">
-          <button
+          {allProjects?.length > projects?.length && <button
             type="button"
             onClick={handleLoadMore}
             className=" md:hover:underline duration-200 font-courgette"
           >
             Load More
-          </button>
+          </button>}
         </div>
       </div>
     </section>
