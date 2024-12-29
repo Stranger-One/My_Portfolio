@@ -52,43 +52,48 @@ const HeroSection = ({ sectionId, ref }) => {
         duration: 1,
         scale: 0,
         stagger: 0.1,
-        delay: 2
+        delay: 1,
       },
     );
-    tl.from(".heading", {
+
+    gsap.from(".heading", {
       y: 100,
       opacity: 0,
+      delay: 1,
     });
-    tl.from(
+
+    gsap.from(
       text.chars,
       {
         opacity: 0,
         stagger: 0.01,
+        delay: 1.2,
       },
     );
-
     
-    tl.from(
+    gsap.from(
       ".actionButton",
       {
         opacity: 0,
         stagger: 0.01,
+        delay: 1.4,
       },
     );
-    tl.from(
+    gsap.from(
       ".mediaLink",
       {
         opacity: 0,
         x: -10,
         stagger: 0.1,
+        delay: 1.6,
       },
     );
   }, {});
   
 
   return (
-    <section ref={ref} id={sectionId} className="section h-screen px-5 md:px-16 lg:px-24 flex items-center">
-      <div className="section-container w-full h-fit flex flex-col-reverse md:flex-row items-center gap-10 relative ">
+    <section ref={ref} id={sectionId} className="section h-[90vh] md:h-screen section-container flex items-center">
+      <div className=" w-full h-fit flex flex-col-reverse md:flex-row items-center gap-10 relative ">
         <div className="w-full flex flex-col justify-center font-courgette">
           <div className="overflow-hidden w-fit">
             <h2 className="heading text-4xl md:text-6xl font-semibold mb-4 font-freeman cursor-none">

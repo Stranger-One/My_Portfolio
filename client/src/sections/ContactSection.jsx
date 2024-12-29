@@ -56,15 +56,15 @@ const ContactSection = ({ sectionId, ref }) => {
       id={sectionId}
       className="section pb-10"
     >
-      <div className="section-container h-full w-full flex flex-col md:flex-row gap-10 lg:space-x-8 dark:bg-background-dark bg-background-light font-courgette">
+      <div className="section-container h-full w-full dark:bg-background-dark bg-background-light font-courgette grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left Side */}
-        <div className="contact-left lg:w-1/2 space-y-6">
+        <div className="contact-left">
           <h2 className="text-3xl md:text-5xl font-bold  text-primary font-freeman tracking-wider cursor-none">Get in Touch</h2>
           <p className="text-lg">
             I'm always open to discussing new projects, creative ideas, or
             opportunities. Feel free to reach out!
           </p>
-          <div className="space-y-4">
+          <div className="space-y-4 mt-6">
             <div>
               <h3 className="text-xl font-freeman">Name</h3>
               <p className="text-lg">Dolamani Rohidas</p>
@@ -96,7 +96,7 @@ const ContactSection = ({ sectionId, ref }) => {
         </div>
 
         {/* Right Side */}
-        <div className="contact-right lg:w-1/2 p-6 z-30 relative dark:bg-background-dark bg-background-light rounded-lg shadow-md shadow-secondary-dark dark:shadow-secondary-light">
+        <div className="contact-right p-6 z-30 relative dark:bg-background-dark bg-background-light rounded-lg shadow-md shadow-secondary-dark dark:shadow-secondary-light">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label

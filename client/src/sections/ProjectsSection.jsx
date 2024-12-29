@@ -158,7 +158,7 @@ const ProjectsSection = ({ sectionId, ref, }) => {
             <LuLoaderCircle size={32} className="text-text-light dark:text-text-dark animate-spin" />
           </div>
         ) : (<div className="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.length ? projects?.map((project, index) => (
+          {projects?.length ? projects?.map((project, index) => (
             <div key={index} className="project-card">
               <ProjectCard project={project} />
             </div>

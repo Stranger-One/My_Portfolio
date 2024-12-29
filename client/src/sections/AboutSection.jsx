@@ -140,7 +140,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
       ref={ref}
       className="section relative flex flex-col gap-20"
     >
-      <div className="aboutMe sticky top-0 w-full h-screen flex flex-col gap-10 items-center justify-center ">
+      <div className="aboutMe sticky top-[200px] lg:top-0 w-full h-[40vh] lg:h-screen flex flex-col gap-10 items-center justify-center">
         <div className=" w-fit aboutHeadingContainer relative overflow-hidden">
           <h1
             ref={aboutPageRef}
@@ -153,7 +153,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
         </div>
         <IoIosArrowDropdown
           size={40}
-          className="animate-bounce absolute bottom-20 "
+          className="animate-bounce absolute hidden lg:block lg:bottom-20 "
         />
       </div>
       
