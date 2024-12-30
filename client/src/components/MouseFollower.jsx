@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 
 const MouseFollower = ({ mouseFollowerSize }) => {
@@ -6,24 +5,17 @@ const MouseFollower = ({ mouseFollowerSize }) => {
 
   useEffect(() => {
     const follower = followerRef.current;
-
     const handleMouseMove = (e) => {
       //   console.log(e);
       const { width, height } = followerRef.current.getBoundingClientRect();
-      gsap.to(follower, {
-        x: e.pageX - width / 2,
-        y: e.clientY + window.scrollY - height / 2,
-        duration: 0.3,
-        ease: "power2.out",
-      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     // window.addEventListener("scroll", handleMouseMove);
-    
+
     return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-        // window.removeEventListener("scroll", handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
+      // window.removeEventListener("scroll", handleMouseMove);
     };
   }, []);
 

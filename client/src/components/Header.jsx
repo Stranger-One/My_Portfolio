@@ -1,17 +1,14 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import React, { useEffect, useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-gsap.registerPlugin(ScrollToPlugin);
-
-const Header = ({ activeSection, isOnTop }) => {
+const Header = ({ activeSection, isOnTop, handleScrollToSection }) => {
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark"
   );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
 
   useEffect(() => {
     if (darkMode) {
@@ -32,37 +29,7 @@ const Header = ({ activeSection, isOnTop }) => {
     { id: 6, label: "Contact", path: "#contact" },
   ];
 
-  const scrollToSection = (section) => {
-    gsap.to(window, { duration: 1, scrollTo: section });
-  };
-
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.from([".themeButton", ".logo"], {
-      opacity: 0,
-      y: -10,
-      duration: 0.5,
-      delay: 1,
-    });
-    tl.from(".navLink", {
-      opacity: 0,
-      x: -10,
-      duration: 0.5,
-      delay: 0.2,
-      stagger: 0.1,
-    });
-  }, {});
-
   const handleMenu = () => {
-    if (!isMenuOpen) {
-      gsap.from(".navLink", {
-        opacity: 0,
-        x: -10,
-        duration: 0.5,
-        delay: 0.2,
-        stagger: 0.1,
-      });
-    }
     setIsMenuOpen((menu) => !menu);
   };
 
@@ -92,11 +59,8 @@ const Header = ({ activeSection, isOnTop }) => {
         <ul className="flex gap-2 flex-col p-4 md:p-0 md:flex-row items-center justify-between">
           {links.map((link) => (
             <li key={link.id} className="navLink w-full">
-              <span
-                onClick={() => {
-                  scrollToSection(link.path);
-                  setIsMenuOpen((menu) => !menu);
-                }}
+              <button
+                onClick={() => handleScrollToSection(link.path)}
                 className={`${
                   link.path === `#${activeSection}`
                     ? "bg-primary "
@@ -104,7 +68,7 @@ const Header = ({ activeSection, isOnTop }) => {
                 } transition-all duration-150 px-4 py-2 inline-block rounded-md cursor-pointer w-full text-center hover:bg-primary hover:dark:bg-primary text-text-light dark:text-text-dark`}
               >
                 {link.label}
-              </span>
+              </button>
             </li>
           ))}
         </ul>

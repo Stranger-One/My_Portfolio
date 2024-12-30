@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ProjectCard } from "../components";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LuSettings2 } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
 import { getProjects } from "../services/ProjectService";
@@ -10,8 +7,6 @@ import { LuLoaderCircle } from "react-icons/lu";
 import { serverProjects } from "../services/data.js";
 
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = ({ sectionId, ref, }) => {
   const [frontend, setFrontend] = useState(false);
@@ -54,33 +49,6 @@ const ProjectsSection = ({ sectionId, ref, }) => {
     setProjects(projects);
   }, [showProjects, allProjects]);
 
-  useGSAP(() => {
-    gsap.from(".project-heading", {
-      scrollTrigger: {
-        trigger: ".project-heading",
-        start: "center 85%",
-        end: "center 85%",
-        scrub: 2,
-        // markers: true,
-      },
-      duration: 1,
-      y: 100,
-      opacity: 0,
-      ease: "power2.out",
-    });
-    gsap.from(".filter-button", {
-      scrollTrigger: {
-        trigger: ".project-heading",
-        start: "center 85%",
-        end: "center 85%",
-        scrub: 2,
-        // markers: true,
-      },
-      duration: 1,
-      opacity: 0,
-      ease: "power2.out",
-    });
-  }, {});
 
 
   return (

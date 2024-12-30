@@ -7,6 +7,7 @@
 
 
 
+
 :root {
   --primary: #007BFF;
 }
@@ -121,7 +122,7 @@
   color: #555;
 }
 
-
+/* 
 .project-card{
   animation: appear ease-in-out;
   animation-timeline: view();
@@ -158,4 +159,4 @@
   to {
     opacity: 1;
   }
-}
+} */

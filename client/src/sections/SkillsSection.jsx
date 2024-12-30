@@ -1,6 +1,4 @@
 import React from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const skills = [
   { name: "HTML5 CSS3", proficiency: 85 },
@@ -34,50 +32,6 @@ const SkillBar = ({ name, proficiency, barRef, className }) => {
 };
 
 const SkillsSection = ({ sectionId, ref }) => {
-
-  useGSAP(() => {
-    gsap.from(".skill-heading", {
-      scrollTrigger: {
-        trigger: ".skill-section",
-        start: "top 50%",
-        end: "top 50%",
-        scrub: 1,
-        // markers: true,
-      },
-      y: 20,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.in",
-      stagger: 0.5,
-    });
-    gsap.from(".skill-names", {
-      scrollTrigger: {
-        trigger: ".skill-section",
-        start: "top 50%",
-        end: "top 50%",
-        scrub: 1,
-        // markers: true,
-      },
-      y: 20,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.in",
-    });
-    gsap.from(".skillBarItem", {
-      scrollTrigger: {
-        trigger: ".skill-section",
-        start: "top 50%",
-        end: "top 50%",
-        scrub: 1,
-        // markers: true,
-      },
-      width: `0%`,
-      duration: 2,
-      delay: 0.3,
-      ease: "power3.in",
-      stagger: 0.1,
-    });
-  }, {});
 
   return (
     <section

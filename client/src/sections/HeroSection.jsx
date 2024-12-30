@@ -1,16 +1,12 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
-import React, { useRef, useState } from "react";
+import React from "react";
 import SplitType from "split-type";
 import { FaGithubSquare } from "react-icons/fa";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
 import { DownloadResume, ScrollButton } from "../components";
 
-gsap.registerPlugin(TextPlugin);
 
-const HeroSection = ({ sectionId, ref }) => {
+const HeroSection = ({ sectionId, ref, handleScrollToSection }) => {
 
   const mediaLinks = [
     { id: "1", icon: FaGithubSquare, path: "https://github.com/Stranger-One" },
@@ -25,70 +21,6 @@ const HeroSection = ({ sectionId, ref }) => {
       path: "https://www.facebook.com/profile.php?id=100053458085134",
     },
   ];
-
-  useGSAP(() => {
-    const text = new SplitType(".tagline", { types: "words, chars" });
-    // console.log(text.chars);
-
-    // Words to highlight
-    const wordsToHighlight = [
-      "MERN",
-    ];
-
-    // Reapply highlight class
-    const words = document.querySelectorAll(".tagline .word");
-    words.forEach((word) => {
-      wordsToHighlight.forEach((highlightWord) => {
-        if (word.textContent.includes(highlightWord)) {
-          word.classList.add("highlight");
-        }
-      });
-    });
-
-    const tl = gsap.timeline();
-    tl.from(
-      [".profileCircle", ".profileImage"],
-      {
-        duration: 1,
-        scale: 0,
-        stagger: 0.1,
-        delay: 1,
-      },
-    );
-
-    gsap.from(".heading", {
-      y: 100,
-      opacity: 0,
-      delay: 1,
-    });
-
-    gsap.from(
-      text.chars,
-      {
-        opacity: 0,
-        stagger: 0.01,
-        delay: 1.2,
-      },
-    );
-    
-    gsap.from(
-      ".actionButton",
-      {
-        opacity: 0,
-        stagger: 0.01,
-        delay: 1.4,
-      },
-    );
-    gsap.from(
-      ".mediaLink",
-      {
-        opacity: 0,
-        x: -10,
-        stagger: 0.1,
-        delay: 1.6,
-      },
-    );
-  }, {});
   
 
   return (
@@ -107,7 +39,7 @@ const HeroSection = ({ sectionId, ref }) => {
 
           <div className="flex flex-col md:flex-row gap-4 mt-10">
             <DownloadResume className={' text-secondary-dark '} />
-            <ScrollButton varient="outline" to="contact">Contact Me</ScrollButton>
+            <ScrollButton varient="outline" to="#contact" handleScrollToSection={handleScrollToSection}>Contact Me</ScrollButton>
           </div>
 
           <div className="flex gap-4 w-full mt-10">
