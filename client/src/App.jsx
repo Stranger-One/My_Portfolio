@@ -10,6 +10,8 @@ import {
 } from "./sections";
 import Lenis from "@studio-freight/lenis";
 import { Toaster } from "react-hot-toast";
+import { TbLoader3 } from "react-icons/tb";
+
 
 function App() {
   const [mouseFollowerSize, setMouseFollowerSize] = useState("small");
@@ -53,7 +55,6 @@ function App() {
     }
   };
 
-  
   const handleScroll = (e) => {
     // console.log((window.scrollY).toFixed(0))
     const scrollPosition = window.scrollY.toFixed(0);
@@ -73,13 +74,33 @@ function App() {
     };
   }, []);
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust duration as needed
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+
+
 
   return (
     <div className="min-h-screen select-none md:select-auto w-full relative bg-background-light dark:bg-background-dark  text-secondary-dark dark:text-secondary-light">
+      <div id="preloader" className={`${isLoading ? "flex" : "hidden"} transition-opacity duration-150 bg-background-light dark:bg-background-dark text-secondary-dark dark:text-secondary-light absolute top-0 left-0 w-full h-screen justify-center items-center z-[60]`}>
+        <TbLoader3 size={52} className="animate-spin" />
+      </div>
+
       <MouseFollower mouseFollowerSize={mouseFollowerSize} />
 
       {/* Header */}
-      <Header isOnTop={isOnTop} activeSection={activeSection} handleScrollToSection={handleScrollToSection} />
+      <Header
+        isOnTop={isOnTop}
+        activeSection={activeSection}
+        handleScrollToSection={handleScrollToSection}
+      />
 
       {/* Main */}
       <main className="w-full">
@@ -87,7 +108,7 @@ function App() {
         <HeroSection
           ref={(el) => (sectionRefs.current[0] = el)}
           sectionId="hero"
-          handleScrollToSection={handleScrollToSection} 
+          handleScrollToSection={handleScrollToSection}
         />
 
         {/* About section */}
@@ -95,8 +116,7 @@ function App() {
           ref={(el) => (sectionRefs.current[1] = el)}
           sectionId="about"
           setMouseFollowerSize={setMouseFollowerSize}
-          handleScrollToSection={handleScrollToSection} 
-
+          handleScrollToSection={handleScrollToSection}
         />
 
         {/* Skills section */}

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Header = ({ activeSection, isOnTop, handleScrollToSection }) => {
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark"
   );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
 
   useEffect(() => {
     if (darkMode) {
@@ -29,9 +29,36 @@ const Header = ({ activeSection, isOnTop, handleScrollToSection }) => {
     { id: 6, label: "Contact", path: "#contact" },
   ];
 
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from([".themeButton", ".logo"], {
+      opacity: 0,
+      y: -10,
+      duration: 0.5,
+      delay: 1,
+    });
+    tl.from(".navLink", {
+      opacity: 0,
+      x: -10,
+      duration: 0.5,
+      delay: 0.2,
+      stagger: 0.1,
+    });
+  }, {});
+
   const handleMenu = () => {
+    if (!isMenuOpen) {
+      gsap.from(".navLink", {
+        opacity: 0,
+        x: -10,
+        duration: 0.5,
+        delay: 0.2,
+        stagger: 0.1,
+      });
+    }
     setIsMenuOpen((menu) => !menu);
   };
+
 
   return (
     <header
@@ -56,9 +83,13 @@ const Header = ({ activeSection, isOnTop, handleScrollToSection }) => {
           isMenuOpen ? "h-fit " : "h-[0px]"
         } bg-secondary-light dark:bg-secondary-dark md:h-fit transition-all duration-150 md:rounded-lg font-courgette mt-14 md:mt-0 md:w-fit  md:bg-transparent md:dark:bg-transparent absolute md:relative right-0 top-0 w-[100vw] md:p-0 overflow-hidden`}
       >
-        <ul className="flex gap-2 flex-col p-4 md:p-0 md:flex-row items-center justify-between">
-          {links.map((link) => (
-            <li key={link.id} className="navLink w-full">
+        <ul className="flex gap-2 flex-col p-4 md:p-0 md:flex-row items-center justify-between"
+        >
+          {links.map((link, index) => (
+            <li
+              key={link.id}
+              className="navLink w-full"
+            >
               <button
                 onClick={() => handleScrollToSection(link.path)}
                 className={`${
