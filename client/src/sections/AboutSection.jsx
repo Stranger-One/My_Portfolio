@@ -3,7 +3,7 @@ import gsap from "gsap";
 import React, { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoIosArrowDropdown, IoMdDownload } from "react-icons/io";
-import { DownloadResume, MouseFollower, ScrollButton } from "../components";
+import { DownloadResume, MouseFollower, ScrollButton, TechStacks } from "../components";
 import SplitType from "split-type";
 
 // Register the ScrollTrigger plugin
@@ -120,7 +120,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
       x: 20,
       delay: 2,
       opacity: 0,
-      stagger: 0.1,
+      stagger: 0.3,
     });
 
     gsap.to(".aboutHeadingContainer", {
@@ -189,7 +189,7 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
           </div>
 
           {/* Right: Skills Grid */}
-          <div className="skill-container text-center bg-secondary-light rounded-xl z-30 relative p-6">
+          {/* <div className="skill-container text-center bg-secondary-light rounded-xl z-30 relative p-6">
             <h3 className="text-2xl mb-4 text-secondary-dark font-freeman tracking-wider cursor-none">
               My Tech Stack
             </h3>
@@ -216,7 +216,9 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
+
+          <TechStacks/>
         </div>
       </div>
     </section>

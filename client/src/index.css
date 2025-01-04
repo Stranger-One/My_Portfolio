@@ -159,3 +159,43 @@
     opacity: 1;
   }
 }
+
+
+.oscillate {
+  position: relative;
+  animation: oscillate 2s linear infinite;
+}
+.oscillate:hover{
+  animation-play-state: paused;
+}
+
+@keyframes oscillate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.projectCard{
+  animation: scrollbg 10s linear infinite alternate;
+}
+
+@keyframes scrollbg {
+  0% {
+    background-position: 50% 0%;
+  }
+  10% {
+    background-position: 50% 0%;
+  }
+  90% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+

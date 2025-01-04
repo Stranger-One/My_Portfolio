@@ -402,6 +402,7 @@ export const serverProjects = [
     {
         _id: "676d97fc9720a8b6d78e517f",
         thumbnail: "https://res.cloudinary.com/dolamani-cloudinary/image/upload/v1735236697/My_Portfolio/images/Chat%20Application-1735236695762.jpg",
+        // thumbnail: "/chat.png",
         title: "Chat Application",
         category: "FullStack",
         description: "An advanced chat application that supports real-time messaging and video calling, built using Socket.IO and PeerJS.",
