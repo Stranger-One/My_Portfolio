@@ -6,6 +6,7 @@ const skills = [
   { name: "HTML5 CSS3", proficiency: 85 },
   { name: "Tailwind CSS", proficiency: 90 },
   { name: "JavaScript", proficiency: 85 },
+  { name: "TypeScript", proficiency: 60 },
   { name: "React", proficiency: 95 },
   { name: "GSAP", proficiency: 75 },
   { name: "Node.js", proficiency: 90 },

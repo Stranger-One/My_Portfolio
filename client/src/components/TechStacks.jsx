@@ -14,11 +14,14 @@ import react from "../assets/tech_logos/react.svg";
 import redux from "../assets/tech_logos/redux.svg";
 import tailwind from "../assets/tech_logos/tailwind-css.svg";
 import webrtc from "../assets/tech_logos/webrtc.svg";
+import socket from "../assets/tech_logos/socket.svg";
+import typescript from "../assets/tech_logos/typescript.svg";
 
 const techStacks = [
   html,
   css,
   javascript,
+  typescript,
   react,
   redux,
   tailwind,
@@ -30,6 +33,7 @@ const techStacks = [
   cloudinary,
   webrtc,
   api,
+  socket,
 ];
 
 const TechStacks = () => {
