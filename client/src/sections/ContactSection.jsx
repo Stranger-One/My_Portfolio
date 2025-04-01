@@ -64,7 +64,7 @@ const ContactSection = ({ sectionId, ref }) => {
             I'm always open to discussing new projects, creative ideas, or
             opportunities. Feel free to reach out!
           </p>
-          <div className="space-y-4 mt-6">
+          <div className="space-y-2 mt-4">
             <div>
               <h3 className="text-xl font-freeman">Name</h3>
               <p className="text-lg">Dolamani Rohidas</p>
@@ -74,8 +74,12 @@ const ContactSection = ({ sectionId, ref }) => {
               <p className="text-lg">dolamanirohidas696@gmail.com</p>
             </div>
             <div>
-              <h3 className="text-lg font-freeman">Location</h3>
+              <h3 className="text-lg font-freeman">Permanent Address</h3>
               <p className="text-lg">Sambalpur, odisha, India <br /> 768228</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-freeman">Current Address</h3>
+              <p className="text-lg">Bhubaneswar, odisha, India <br /> 752050</p>
             </div>
           </div>
           <div className="flex gap-4 w-full mt-10">

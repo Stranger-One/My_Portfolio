@@ -81,7 +81,7 @@ const Header = ({ activeSection, isOnTop }) => {
           isOnTop ? "" : "md:hidden"
         } transition-opacity duration-100 ease-in-out`}
       >
-        <h1 className="font-bold text-lg logo font-freeman">LOGO</h1>
+        <h1 className="font-bold text-lg logo font-freeman">DOLAMANI</h1>
       </div>
 
       <nav
