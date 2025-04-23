@@ -33,6 +33,7 @@ const HeroSection = ({ sectionId, ref }) => {
     // Words to highlight
     const wordsToHighlight = [
       "MERN",
+      "freelance",
     ];
 
     // Reapply highlight class
@@ -94,7 +95,7 @@ const HeroSection = ({ sectionId, ref }) => {
   return (
     <section ref={ref} id={sectionId} className="section h-[90vh] md:h-screen section-container flex items-center">
       <div className=" w-full h-fit flex flex-col-reverse md:flex-row items-center gap-10 relative ">
-        <div className="w-full flex flex-col justify-center font-courgette">
+        <div className="w-full flex flex-col justify-center font-courgette space-y-10">
           <div className="overflow-hidden w-fit">
             <h2 className="heading text-4xl md:text-6xl font-semibold mb-4 font-freeman cursor-none">
               Hi, I'm <span className="text-primary">Dola.</span>
@@ -105,12 +106,16 @@ const HeroSection = ({ sectionId, ref }) => {
             "Building seamless web solutions with the power of the MERN Stack."
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 mt-10">
+          <p className="tagline text-2xl md:text-3xl cursor-none md:w-[80%]  ">
+          "Available for freelance opportunities — let's build something awesome together!"
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-4">
             <DownloadResume className={' text-secondary-dark '} />
             <ScrollButton varient="outline" to="contact">Contact Me</ScrollButton>
           </div>
 
-          <div className="flex gap-4 w-full mt-10">
+          <div className="flex gap-4 w-full">
             {mediaLinks.map((link) => (
               <a
                 key={link.id}

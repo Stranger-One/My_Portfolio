@@ -8,6 +8,7 @@ const skills = [
   { name: "JavaScript", proficiency: 85 },
   { name: "TypeScript", proficiency: 60 },
   { name: "React", proficiency: 95 },
+  { name: "Next.js", proficiency: 60 },
   { name: "GSAP", proficiency: 75 },
   { name: "Node.js", proficiency: 90 },
   { name: "Express.js", proficiency: 80 },

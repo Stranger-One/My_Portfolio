@@ -16,6 +16,7 @@ import tailwind from "../assets/tech_logos/tailwind-css.svg";
 import webrtc from "../assets/tech_logos/webrtc.svg";
 import socket from "../assets/tech_logos/socket.svg";
 import typescript from "../assets/tech_logos/typescript.svg";
+import nextjs from "../assets/tech_logos/nextjs.svg";
 
 const techStacks = [
   html,
@@ -23,6 +24,7 @@ const techStacks = [
   javascript,
   typescript,
   react,
+  nextjs,
   redux,
   tailwind,
   nodejs,
