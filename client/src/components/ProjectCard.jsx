@@ -11,7 +11,7 @@ const ProjectCard = ({ project }) => {
         backgroundImage: `url(${project?.thumbnail || "/Stranger-One.png"})`,
       }}
     >
-      <h3 className="absolute left-0 top-2 md:top-[97%] md:-translate-y-[100%] md:group-hover:-translate-y-[0%] md:group-hover:top-2 duration-200 z-10 text-2xl font-semibold text-primary hover:underline cursor-none line-clamp-1 px-4">
+      <h3 className="absolute left-0 top-2 md:top-[97%] md:-translate-y-[100%] md:group-hover:-translate-y-[0%] md:group-hover:top-2 duration-200 z-10 text-2xl font-semibold text-primary hover:underline cursor-none line-clamp-1 px-4 capitalize">
         {project.title}
       </h3>
 
