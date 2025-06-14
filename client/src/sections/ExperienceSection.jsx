@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
 import { ExperienceCard } from "../components";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { experiences } from "../services/data.js";
+import experiences from "../assets/experiences.js";
 
 
 // Register GSAP plugins

@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ProjectCard } from "../components";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LuSettings2 } from "react-icons/lu";
 import { IoIosArrowDown } from "react-icons/io";
-import { getProjects } from "../services/ProjectService";
 import { LuLoaderCircle } from "react-icons/lu";
-import { serverProjects } from "../services/data.js";
 import UpdatedProjects from "../assets/projects.js";
 
 
@@ -32,10 +30,9 @@ const ProjectsSection = ({ sectionId, ref, }) => {
     if (backend) filter.push("Backend");
     if (fullStack) filter.push("FullStack");
 
-    const response = await getProjects(filter);
-    // console.log("response", response);
+    // const response = await getProjects(filter);
+    // setAllProjects(response?.data);
     setShowProjects(6);
-    setAllProjects(response?.data);
     // setLoading(false);
   };
 
@@ -51,7 +48,6 @@ const ProjectsSection = ({ sectionId, ref, }) => {
 
   useEffect(() => {
     const projects = allProjects?.slice(0, showProjects);
-    // console.log(showProjects, projects);
     setProjects(projects);
   }, [showProjects, allProjects]);
 

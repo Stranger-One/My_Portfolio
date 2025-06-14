@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -112,6 +112,7 @@ const Header = ({ activeSection, isOnTop }) => {
 
       <div className="themeButton flex gap-2">
         <button
+        aria-label="Visibility toggle button"
           onClick={() => setDarkMode((mode) => !mode)}
           className={`${
             isOnTop ? "" : "md:hidden"
@@ -120,6 +121,7 @@ const Header = ({ activeSection, isOnTop }) => {
           {darkMode ? <MdLightMode size={20} /> : <MdDarkMode size={20} />}
         </button>
         <button
+        aria-label="Menu toggle button"
           onClick={handleMenu}
           className={` p-2 rounded shadow-background-dark dark:shadow-background-light md:hoverShadow transition-opacity duration-100 ease-in-out md:hidden bg-background-light dark:bg-background-dark`}
         >

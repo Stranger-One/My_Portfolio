@@ -1,4 +1,3 @@
-import React from "react";
 import { IoMdDownload } from "react-icons/io";
 
 const DownloadResume = ({className}) => {

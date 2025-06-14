@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 import api from "../assets/tech_logos/api.svg";
 import cloudinary from "../assets/tech_logos/cloudinary.svg";
@@ -39,39 +39,6 @@ const techStacks = [
 ];
 
 const TechStacks = () => {
-  const [positions, setPositions] = useState([]);
-
-  // useEffect(() => {
-  //   const getRandomPosition = (index) => {
-  //     const container = document.querySelector(".skill-container");
-  //     const containerWidth = container.offsetWidth;
-  //     const containerHeight = container.offsetHeight;
-
-  //     const maxX = containerWidth - 80; // Image width (20) + some padding
-  //     const maxY = containerHeight - 80; // Image height (20) + some padding
-
-  //     // Ensure images don't overlap
-  //     let x = Math.random() * maxX;
-  //     let y = Math.random() * maxY;
-
-  //     // Avoid overlap by checking positions of previous images
-  //     for (let i = 0; i < index; i++) {
-  //       const prevPos = positions[i];
-  //       const dist = Math.sqrt(Math.pow(x - prevPos.x, 2) + Math.pow(y - prevPos.y, 2));
-  //       if (dist < 50) {
-  //         x = Math.random() * maxX;
-  //         y = Math.random() * maxY;
-  //         i = -1; // Restart the loop if overlap happens
-  //       }
-  //     }
-
-  //     return { x, y };
-  //   };
-
-  //   const newPositions = techStacks.map((_, index) => getRandomPosition(index));
-  //   setPositions(newPositions);
-  // }, []);
-
   return (
     <div className="skill-container  relative rounded-xl p-6 flex flex-wrap w-full h-full justify-end gap-4 z-40 bg-background-light dark:bg-background-dark">
       {techStacks.map((tech, index) => (

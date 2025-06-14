@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { IoMdArrowRoundUp } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
+import { useEffect, useState } from "react";
 
 
 const BackToTopBtn = () => {

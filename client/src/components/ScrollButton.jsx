@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import React from "react";
 
 const ScrollButton = ({ children, varient = "outline", to = "", className }) => {
 

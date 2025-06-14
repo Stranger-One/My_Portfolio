@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const MouseFollower = ({ mouseFollowerSize }) => {
   const followerRef = useRef(null);

@@ -1,9 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { IoIosArrowDropdown, IoMdDownload } from "react-icons/io";
-import { DownloadResume, MouseFollower, ScrollButton, TechStacks } from "../components";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { DownloadResume, ScrollButton, TechStacks } from "../components";
 import SplitType from "split-type";
 
 // Register the ScrollTrigger plugin
@@ -187,36 +187,6 @@ const AboutSection = ({ sectionId, ref, setMouseFollowerSize }) => {
               </ScrollButton>
             </div>
           </div>
-
-          {/* Right: Skills Grid */}
-          {/* <div className="skill-container text-center bg-secondary-light rounded-xl z-30 relative p-6">
-            <h3 className="text-2xl mb-4 text-secondary-dark font-freeman tracking-wider cursor-none">
-              My Tech Stack
-            </h3>
-            <ul className="skills-list">
-              {[
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React.js",
-                "Node.js",
-                "Express.js",
-                "MongoDB",
-                "Socket.IO",
-                "WebRTC",
-                "Cloudinary",
-                "Git & GitHub",
-                "REST APIs",
-              ].map((item, index) => (
-                <li
-                  key={index}
-                  className="skillItem bg-background-light rounded-lg text-center p-2 md:hover:bg-primary text-text-light cursor-pointer "
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div> */}
 
           <TechStacks/>
         </div>
